@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FlowerShop.Shared</RootNamespace>
+    <Description>Общая библиотека: протокол обмена и модели предметной области (вариант 14 — Заказ и доставка цветов)</Description>
+  </PropertyGroup>
+
+</Project>
