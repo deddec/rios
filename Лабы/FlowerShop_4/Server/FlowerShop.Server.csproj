@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FlowerShop.Server</RootNamespace>
+    <!-- ЛР №4: Microsoft.Data.SqlClient при открытии соединения требует реальные
+         культуры (CultureInfo.GetCultureInfo("en-us")). В инвариантном режиме
+         (true) это вызывает CultureNotFoundException, поэтому глобализация отключена.
+         На Windows используется встроенная поддержка NLS — ICU не требуется. -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\FlowerShop.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- ЛР №4: MSSQL подключение -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- ЛР №4: schema.sql копируется в выходную папку — сервер всегда находит его рядом с exe -->
+    <None Update="Data\schema.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -46,7 +46,7 @@ public class Database
             DataSource = "localhost,1433",
             InitialCatalog = DefaultDatabase,
             UserID = "sa",
-            Password = "MyStrongPassword",
+            Password = "MyStrongPassword123!",
             Encrypt = false,          // локальный контейнер без TLS-сертификата
             TrustServerCertificate = true,
             ConnectTimeout = 5,
@@ -73,7 +73,7 @@ public class Database
             LastError = ex.Message;
             connection.Dispose();
             throw new OperationException(
-                ErrorCodes.DatabaseUnavailable,
+                ErrorCodes.ServerUnavailable,
                 $"Ошибка подключения к БД: {ex.Message}");
         }
         catch (InvalidOperationException ex)
@@ -81,7 +81,7 @@ public class Database
             LastError = ex.Message;
             connection.Dispose();
             throw new OperationException(
-                ErrorCodes.DatabaseUnavailable,
+                ErrorCodes.ServerUnavailable,
                 $"Соединение с БД отсутствует: {ex.Message}");
         }
     }
@@ -103,6 +103,29 @@ public class Database
             error = ex.Message;
             return false;
         }
+    }
+
+    /// <summary>
+    /// Создать базу данных FlowerShop, если она ещё не существует.
+    /// Подключение выполняется к master, т.к. к несуществующей БД подключиться нельзя.
+    /// Вызывается сервером при старте ДО проверки доступности (Требование 8).
+    /// </summary>
+    public void EnsureDatabaseExists()
+    {
+        var builder = new SqlConnectionStringBuilder(ConnectionString) { InitialCatalog = "master" };
+        using var conn = new SqlConnection(builder.ConnectionString);
+        try
+        {
+            conn.Open();
+        }
+        catch (SqlException ex)
+        {
+            throw new OperationException(ErrorCodes.ServerUnavailable,
+                $"Соединение с сервером СУБД отсутствует: {ex.Message}");
+        }
+
+        using var cmd = new SqlCommand($"IF DB_ID(N'{DefaultDatabase}') IS NULL CREATE DATABASE [{DefaultDatabase}];", conn);
+        cmd.ExecuteNonQuery();
     }
 
     /// <summary>
@@ -150,7 +173,7 @@ public class Database
             catch (SqlException ex)
             {
                 throw new OperationException(
-                    ErrorCodes.DatabaseError,
+                    ErrorCodes.InternalError,
                     $"Ошибка выполнения schema.sql: {ex.Message}");
             }
         }

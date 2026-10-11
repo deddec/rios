@@ -34,4 +34,16 @@ public static class ErrorCodes
     /// данные времени или ответ не содержит поля serverTime.
     /// </summary>
     public const string TimeSyncError = "TIME_SYNC_ERROR";
+
+    /// <summary>
+    /// ЛР №4: ошибка базы данных (БД недоступна, нарушение ограничения, ошибка внутри
+    /// транзакции). Сообщение содержит подробности от СУБД.
+    /// </summary>
+    public const string DatabaseError = "DB_ERROR";
+
+    /// <summary>
+    /// ЛР №4: составная операция завершилась ошибкой и была откатена (ROLLBACK),
+    /// либо (без транзакции) оставила частичные изменения в БД.
+    /// </summary>
+    public const string TransactionError = "TRANSACTION_ERROR";
 }

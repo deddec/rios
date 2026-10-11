@@ -62,6 +62,9 @@ CREATE TABLE dbo.Florists
     FullName  NVARCHAR(100) NOT NULL,
     Specialty NVARCHAR(100) NOT NULL,
     CONSTRAINT PK_Florists PRIMARY KEY (Id)
+);
+GO
+
 -- 5. Заказы ----------------------------------------------------------------
 IF OBJECT_ID(N'dbo.Orders', N'U') IS NULL
 CREATE TABLE dbo.Orders
@@ -116,8 +119,6 @@ CREATE TABLE dbo.OrderEvents
     CONSTRAINT PK_OrderEvents PRIMARY KEY (Id),
     CONSTRAINT FK_OrderEvents_Orders FOREIGN KEY (OrderId)
         REFERENCES dbo.Orders (Id) ON DELETE CASCADE
-);
-GO
 );
 GO
 

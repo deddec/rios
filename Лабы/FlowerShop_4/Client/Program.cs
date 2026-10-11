@@ -80,6 +80,10 @@ while (true)
     Console.WriteLine("12 — Проверить скорректированное время (остаточная ошибка)");
     Console.WriteLine("13 — Изменить смещение часов клиента (моделирование)");
     Console.WriteLine("14 — Итоговый эксперимент ЛР №3 (проверки 1–3)");
+    Console.WriteLine(" ------- База данных (ЛР №4) -------");
+    Console.WriteLine("15 — PlaceOrderAndReserve (составная операция: заказ + резерв)");
+    Console.WriteLine("16 — ListOrders        (чтение списка заказов из БД)");
+    Console.WriteLine("17 — Итоговый эксперимент ЛР №4 (без транзакции / COMMIT / ROLLBACK)");
     Console.WriteLine(" 0 — Выход");
     Console.Write("Выберите операцию: ");
 
@@ -104,8 +108,11 @@ while (true)
             case "12": await DoVerifyCorrectedTimeAsync(); break;
             case "13": DoChangeClockOffset(); break;
             case "14": await DoFinalExperimentAsync(); break;
+            case "15": await DoPlaceOrderAndReserveAsync(); break;
+            case "16": await DoListOrdersAsync(); break;
+            case "17": await DoLab4FinalExperimentAsync(); break;
             case "0": Console.WriteLine("Клиент остановлен."); return;
-            default: Console.WriteLine("Некорректная операция: выберите пункт меню 0–14."); break;
+            default: Console.WriteLine("Некорректная операция: выберите пункт меню 0–17."); break;
         }
     }
     catch (ServerUnavailableException ex)
@@ -358,6 +365,130 @@ async Task DoFinalExperimentAsync()
 
     Console.WriteLine();
     Console.WriteLine("Значения выше можно перенести в Таблицу 2 отчёта по ЛР №3.");
+}
+
+// ---------- Операции ЛР №4 (база данных и транзакции) ----------
+
+async Task DoPlaceOrderAndReserveAsync()
+{
+    Console.WriteLine("--- PlaceOrderAndReserve: составная операция «заказ + резерв букета» ---");
+    Console.WriteLine("Операции: 1) создание заказа; 2) уменьшение ресурса букета (Bouquets.AvailableCount).");
+    Console.WriteLine("С транзакцией обе операции фиксируются COMMIT или отменяются ROLLBACK целиком.");
+    Console.WriteLine("  Клиенты: 1 — Иванова Анна, 2 — Петров Сергей");
+    Console.WriteLine("  Букеты:  1 — Розовое облако, 2 — Весенний, 3 — Новогодний люкс");
+
+    int customerId = ReadInt("Id клиента: ");
+    int bouquetId = ReadInt("Id букета: ");
+    string address = ReadNonEmpty("Адрес доставки: ");
+    string date = ReadDate("Дата доставки (ГГГГ-ММ-ДД): ");
+
+    Console.Write("Использовать транзакцию? (Y/n, по умолчанию Y): ");
+    bool useTransaction = !string.Equals(Console.ReadLine()?.Trim(), "n", StringComparison.OrdinalIgnoreCase);
+    Console.Write("Искусственно вызвать ошибку между операциями? (y/N): ");
+    bool simulatedError = string.Equals(Console.ReadLine()?.Trim(), "y", StringComparison.OrdinalIgnoreCase);
+
+    if (useTransaction)
+    {
+        Console.WriteLine("Режим: BEGIN → Операция 1 → Операция 2 → COMMIT (при ошибке — ROLLBACK).");
+    }
+    else
+    {
+        Console.WriteLine("Режим БЕЗ транзакции: автокоммит; при ошибке между операциями возможны частичные изменения.");
+    }
+
+    await SendAndPrintAsync(RequestBuilder.PlaceOrderAndReserve(customerId, bouquetId, address, date, useTransaction, simulatedError));
+}
+
+async Task DoListOrdersAsync()
+{
+    Console.WriteLine("--- ListOrders: чтение списка заказов из БД ---");
+    await SendAndPrintAsync(RequestBuilder.ListOrders());
+}
+
+async Task DoLab4FinalExperimentAsync()
+{
+    Console.WriteLine("================ ИТОГОВЫЙ ЭКСПЕРИМЕНТ ЛР №4 ================");
+    Console.WriteLine("Составная операция «создать заказ + зарезервировать букет» над БД MSSQL.");
+    Console.WriteLine("Букет #3 «Новогодний люкс» — общий ресурс, количество будет установлено в 1.");
+    Console.WriteLine();
+
+    // ---------- Подготовка: ресурс = 1, счётчик заказов ----------
+    Response setStatus = await SendRawAsync(RequestBuilder.SetBouquetAvailability(3, 1));
+    Console.WriteLine($"  Подготовка: {setStatus.Message}");
+
+    Response beforeList = await SendRawAsync(RequestBuilder.ListOrders());
+    int ordersBefore = beforeList.Success && beforeList.Data is JsonElement d && d.TryGetProperty("count", out var c)
+        ? c.GetInt32() : -1;
+    Console.WriteLine($"  Заказов в БД до эксперимента: {ordersBefore}");
+    Console.WriteLine();
+
+    // ---------- Эксперимент 1: без транзакции + ошибка → частичное изменение ----------
+    Console.WriteLine("[Эксперимент 1] БЕЗ транзакции + искусственная ошибка между операциями");
+    Console.WriteLine("  Ожидание: Операция 1 (INSERT заказа) уже автокоммичена, ошибка случится в Операции 2 —");
+    Console.WriteLine("  заказ ОСТАЁТСЯ в БД, ресурс НЕ уменьшен → частичное изменение данных.");
+    Response exp1 = await SendRawAsync(RequestBuilder.PlaceOrderAndReserve(1, 3, "ул. Транзакционная, 1", "2026-10-20",
+        useTransaction: false, simulatedError: true));
+    PrintExpResult(exp1);
+    await PrintDbStateAsync();
+    Console.WriteLine();
+
+    // ---------- Эксперимент 2: транзакция + ошибка → ROLLBACK ----------
+    Console.WriteLine("[Эксперимент 2] ТРАНЗАКЦИЯ + искусственная ошибка между операциями");
+    Console.WriteLine("  Ожидание: BEGIN → Операция 1 → Ошибка → ROLLBACK → в БД НИЧЕГО не изменилось.");
+    Response exp2 = await SendRawAsync(RequestBuilder.PlaceOrderAndReserve(1, 3, "ул. Транзакционная, 2", "2026-10-21",
+        useTransaction: true, simulatedError: true));
+    PrintExpResult(exp2);
+    await PrintDbStateAsync();
+    Console.WriteLine();
+
+    // ---------- Эксперимент 3: транзакция без ошибки → COMMIT ----------
+    Console.WriteLine("[Эксперимент 3] ТРАНЗАКЦИЯ без ошибок");
+    Console.WriteLine("  Ожидание: BEGIN → Операция 1 → Операция 2 → COMMIT → заказ добавлен, ресурс уменьшен.");
+    Response exp3 = await SendRawAsync(RequestBuilder.PlaceOrderAndReserve(1, 3, "ул. Транзакционная, 3", "2026-10-22",
+        useTransaction: true, simulatedError: false));
+    PrintExpResult(exp3);
+    await PrintDbStateAsync();
+    Console.WriteLine();
+
+    Console.WriteLine("Сравнение (Таблица 5 отчёта):");
+    Console.WriteLine("  • Эксперимент 1 (без транзакции): заказ в БД остался — частичное изменение.");
+    Console.WriteLine("  • Эксперимент 2 (ROLLBACK): БД не изменилась — согласованность сохранена.");
+    Console.WriteLine("  • Эксперимент 3 (COMMIT): обе операции зафиксированы атомарно.");
+}
+
+void PrintExpResult(Response r)
+{
+    if (r.Success)
+    {
+        Console.WriteLine($"  Результат: SUCCESS — {r.Message}");
+    }
+    else
+    {
+        Console.WriteLine($"  Результат: FAIL [{r.ErrorCode}] — {r.Message}");
+    }
+}
+
+async Task PrintDbStateAsync()
+{
+    Response status = await SendRawAsync(RequestBuilder.GetBouquetStatus(3));
+    Console.WriteLine($"  Ресурс:   {status.Message}");
+    Response list = await SendRawAsync(RequestBuilder.ListOrders());
+    Console.WriteLine($"  Заказы:   {list.Message}");
+}
+
+/// <summary>
+/// Отправка запроса без декоративной печати (для пошагового эксперимента ЛР №4).
+/// </summary>
+async Task<Response> SendRawAsync(Request request)
+{
+    try
+    {
+        return await client.SendAsync(request);
+    }
+    catch (ServerUnavailableException ex)
+    {
+        return Response.Fail(ErrorCodes.ServerUnavailable, ex.Message);
+    }
 }
 
 // ---------- Операции ЛР №1 (без изменений) ----------

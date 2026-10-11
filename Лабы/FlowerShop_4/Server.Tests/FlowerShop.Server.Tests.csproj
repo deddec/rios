@@ -6,7 +6,9 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
     <RootNamespace>FlowerShop.Tests</RootNamespace>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- Тесты DatabaseTransactionTests используют Database/SqlClient, которому
+         требуется реальная культура. Инвариантная глобализация отключена. -->
+    <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>

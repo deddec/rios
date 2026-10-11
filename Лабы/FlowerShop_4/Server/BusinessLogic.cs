@@ -1,4 +1,5 @@
 using System.Text.Json;
+using FlowerShop.Server.Data;
 using FlowerShop.Shared.Models;
 using FlowerShop.Shared.Protocol;
 
@@ -19,6 +20,16 @@ public class BusinessLogic
 {
     private readonly InMemoryDataStore _db;
 
+    /// <summary>
+    /// ЛР №4: репозиторий заказов в MSSQL. Если задан, операции предметной области
+    /// выполняются через базу данных (архитектура Client → Server → Database);
+    /// если null — работает старое поведение на памяти (ЛР №1–№3, unit-тесты).
+    /// </summary>
+    private readonly OrderRepository? _repository;
+
+    /// <summary>Доступ к репозиторию БД (null — если БД не подключена).</summary>
+    public OrderRepository? Repository => _repository;
+
     /// <summary>Объект синхронизации для lock (Требование 5): защищает критическую секцию.</summary>
     private readonly object _syncObject = new();
 
@@ -32,10 +43,12 @@ public class BusinessLogic
     /// <summary>Выбранный механизм синхронизации общего ресурса (ЛР №3).</summary>
     public SyncMechanism Sync { get; }
 
-    public BusinessLogic(InMemoryDataStore? db = null, SyncMechanism sync = SyncMechanism.Lock)
+    public BusinessLogic(InMemoryDataStore? db = null, SyncMechanism sync = SyncMechanism.Lock,
+        OrderRepository? repository = null)
     {
         _db = db ?? new InMemoryDataStore();
         Sync = sync;
+        _repository = repository;
     }
 
     /// <summary>Доступ к списку заказов для тестов и отладки.</summary>
@@ -60,11 +73,15 @@ public class BusinessLogic
             // ЛР №3, часть 2: TIME_REQUEST / TIME_RESPONSE (GetServerTime + псевдоним TimeRequest)
             case "GetServerTime":
             case "TimeRequest": return GetServerTimeAsync(context);
+            // ЛР №4: операции через базу данных (MSSQL)
+            case "PlaceOrderAndReserve": return PlaceOrderAndReserveAsync(request.Payload, context, ct);
+            case "ListOrders": return Task.FromResult(ListOrders());
             default:
                 throw new OperationException(
                     ErrorCodes.UnknownOperation,
                     $"Неизвестная операция: '{request.Operation}'. Доступны: CreateOrder, CustomizeBouquet, " +
-                    "AssignFlorist, ArrangeDelivery, ReserveBouquet, SetBouquetAvailability, GetBouquetStatus, GetServerTime");
+                    "AssignFlorist, ArrangeDelivery, ReserveBouquet, SetBouquetAvailability, GetBouquetStatus, " +
+                    "GetServerTime, PlaceOrderAndReserve, ListOrders");
         }
     }
 
@@ -81,6 +98,12 @@ public class BusinessLogic
         int bouquetId = GetInt(p, "bouquetId");
         string address = GetString(p, "deliveryAddress");
         DateTime deliveryDate = GetDate(p, "deliveryDate");
+
+        // ЛР №4: при подключённой БД заказ сохраняется в базу данных (операция изменения).
+        if (_repository is not null)
+        {
+            return CreateOrderInDb(customerId, bouquetId, address, deliveryDate);
+        }
 
         Customer? customer = _db.Customers.FirstOrDefault(c => c.Id == customerId);
         if (customer is null)
@@ -291,6 +314,12 @@ public class BusinessLogic
                 $"Поле 'criticalDelayMs' должно быть в диапазоне 0..{RequestHandler.MaxDelayMs} мс");
         }
 
+        // ЛР №4: общий ресурс хранится в БД — критическая секция работает с SQL-данными.
+        if (_repository is not null)
+        {
+            return await ReserveBouquetInDbAsync(bouquetId, criticalDelayMs, context, ct);
+        }
+
         Bouquet bouquet = _db.Bouquets.FirstOrDefault(b => b.Id == bouquetId)
             ?? throw new OperationException(ErrorCodes.NotFound, $"Букет с Id={bouquetId} не найден");
 
@@ -443,6 +472,12 @@ public class BusinessLogic
             throw new OperationException(ErrorCodes.ValidationError, "Количество ('count') не может быть отрицательным");
         }
 
+        // ЛР №4: запись общего ресурса выполняется в БД (под той же критической секцией).
+        if (_repository is not null)
+        {
+            return await SetBouquetAvailabilityInDbAsync(bouquetId, count, context, ct);
+        }
+
         Bouquet bouquet = _db.Bouquets.FirstOrDefault(b => b.Id == bouquetId)
             ?? throw new OperationException(ErrorCodes.NotFound, $"Букет с Id={bouquetId} не найден");
 
@@ -475,6 +510,12 @@ public class BusinessLogic
     /// </summary>
     public Response GetBouquetStatus(JsonElement? payload)
     {
+        // ЛР №4: состояние общего ресурса читается из БД.
+        if (_repository is not null)
+        {
+            return GetBouquetStatusFromDb(payload);
+        }
+
         if (payload is JsonElement p && p.ValueKind == JsonValueKind.Object && p.TryGetProperty("bouquetId", out _))
         {
             int bouquetId = GetInt(p, "bouquetId");
@@ -509,6 +550,300 @@ public class BusinessLogic
             serverTimeUtc = serverTime.ToString("o"),
             serverTimeUnixMs = new DateTimeOffset(serverTime).ToUnixTimeMilliseconds()
         }, $"Время сервера (UTC): {serverTime:HH:mm:ss.fff}"));
+    }
+
+    // ===== Операции ЛР №4: работа через базу данных (MSSQL) ==================
+
+    /// <summary>
+    /// CreateOrderInDb — создание заказа в БД (операция изменения, Требование 5).
+    /// Клиент обращается только к серверу; сервер — к БД через <see cref="OrderRepository"/>.
+    /// Ограничения целостности (FK Customers/Bouquets) контролирует сама СУБД.
+    /// </summary>
+    private Response CreateOrderInDb(int customerId, int bouquetId, string address, DateTime deliveryDate)
+    {
+        var repo = RequireRepository();
+
+        if (!repo.CustomerExists(customerId))
+        {
+            throw new OperationException(ErrorCodes.NotFound, $"Клиент с Id={customerId} не найден в БД");
+        }
+        if (!repo.BouquetExists(bouquetId))
+        {
+            throw new OperationException(ErrorCodes.NotFound, $"Букет с Id={bouquetId} не найден в БД");
+        }
+
+        int orderId = repo.CreateOrder(customerId, bouquetId, address, deliveryDate);
+        if (orderId <= 0)
+        {
+            throw new OperationException(ErrorCodes.DatabaseError, "Не удалось получить Id созданного заказа");
+        }
+
+        return Response.Ok(new { orderId, customerId, bouquetId, status = OrderStatus.Created, deliveryDate, deliveryAddress = address },
+            $"Заказ #{orderId} создан и сохранён в БД. Статус: {OrderStatus.Created}.");
+    }
+
+    /// <summary>
+    /// ЛР №4, часть 2: бронирование букета — общий ресурс хранится в БД (Bouquets.AvailableCount).
+    /// Критическая секция «проверка → резервирование» защищена выбранным механизмом
+    /// (<see cref="Sync"/>): пока один клиент внутри секции, второй ждёт (lock/семафор).
+    /// Внутри секции выполняется атомарный SQL-UPDATE ... WHERE AvailableCount > 0.
+    /// </summary>
+    private async Task<Response> ReserveBouquetInDbAsync(int bouquetId, int criticalDelayMs,
+        RequestContext? context, CancellationToken ct)
+    {
+        var repo = RequireRepository();
+
+        Bouquet bouquet = repo.GetBouquet(bouquetId)
+            ?? throw new OperationException(ErrorCodes.NotFound, $"Букет с Id={bouquetId} не найден в БД");
+
+        return Sync switch
+        {
+            SyncMechanism.SemaphoreSlim => await ReserveInDbWithSemaphoreAsync(repo, bouquet, criticalDelayMs, context, ct),
+            SyncMechanism.None => await ReserveInDbWithoutSync(repo, bouquet, criticalDelayMs, context, ct),
+            _ => ReserveInDbWithLock(repo, bouquet, criticalDelayMs, context, ct),
+        };
+    }
+
+    /// <summary>Режим lock: критическая секция «прочитать → решить → записать» в БД.</summary>
+    private Response ReserveInDbWithLock(OrderRepository repo, Bouquet bouquet, int criticalDelayMs,
+        RequestContext? context, CancellationToken ct)
+    {
+        int bouquetId = bouquet.Id;
+        lock (_syncObject)
+        {
+            Log(context, "LOCK", $"Букет #{bouquetId} — вход в критическую секцию (lock, БД)");
+            try
+            {
+                return CheckAndReserveInDb(repo, bouquet, criticalDelayMs, context, useThreadSleep: true, ct);
+            }
+            finally
+            {
+                Log(context, "UNLOCK", $"Букет #{bouquetId} — выход из критической секции (lock, БД)");
+            }
+        }
+    }
+
+    /// <summary>Режим SemaphoreSlim: та же секция, но ожидание асинхронное.</summary>
+    private async Task<Response> ReserveInDbWithSemaphoreAsync(OrderRepository repo, Bouquet bouquet, int criticalDelayMs,
+        RequestContext? context, CancellationToken ct)
+    {
+        int bouquetId = bouquet.Id;
+        await _semaphore.WaitAsync(ct);
+        try
+        {
+            Log(context, "LOCK", $"Букет #{bouquetId} — вход в критическую секцию (SemaphoreSlim, БД)");
+            return CheckAndReserveInDb(repo, bouquet, criticalDelayMs, context, useThreadSleep: false, ct);
+        }
+        finally
+        {
+            Log(context, "UNLOCK", $"Букет #{bouquetId} — выход из критической секции (SemaphoreSlim, БД)");
+            _semaphore.Release();
+        }
+    }
+
+    /// <summary>Режим None: проверка и запись не атомарны — для сравнения «до» (ЛР №2).</summary>
+    private async Task<Response> ReserveInDbWithoutSync(OrderRepository repo, Bouquet bouquet, int criticalDelayMs,
+        RequestContext? context, CancellationToken ct)
+    {
+        int available = repo.GetAvailableCount(bouquet.Id);
+        Log(context, "READ", $"Букет #{bouquet.Id} — доступно {available} шт. (без синхронизации, БД)");
+        if (criticalDelayMs > 0)
+        {
+            await Task.Delay(criticalDelayMs, ct);   // окно гонки
+        }
+        if (available <= 0)
+        {
+            Log(context, "FAIL", $"Букет #{bouquet.Id} — отказ: свободных экземпляров не осталось");
+            throw new OperationException(ErrorCodes.OutOfStock,
+                $"Букет «{bouquet.Name}» недоступен для бронирования: свободных экземпляров не осталось");
+        }
+
+        bool reserved = repo.TryReserveOne(bouquet.Id);
+        if (!reserved)
+        {
+            Log(context, "FAIL", $"Букет #{bouquet.Id} — отказ: конкурентный запрос успел забрать ресурс");
+            throw new OperationException(ErrorCodes.OutOfStock,
+                $"Букет «{bouquet.Name}» недоступен для бронирования: свободных экземпляров не осталось");
+        }
+
+        Log(context, "WRITE", $"Букет #{bouquet.Id} — резервирование выполнено (без синхронизации, БД)");
+        Log(context, "SUCCESS", $"Букет #{bouquet.Id} — бронирование подтверждено (без синхронизации)");
+        int after = repo.GetAvailableCount(bouquet.Id);
+        return Response.Ok(new { bouquetId = bouquet.Id, bouquet.Name, AvailableAfter = after },
+            $"Букет «{bouquet.Name}» забронирован (без синхронизации). Доступно после бронирования: {after} шт.");
+    }
+
+    /// <summary>
+    /// Ядро критической секции для БД: ПРОВЕРКА доступности и ИЗМЕНЕНИЕ ресурса выполняются
+    /// как единая неделимая операция (Требование 6): атомарный UPDATE с условием AvailableCount > 0.
+    /// </summary>
+    private Response CheckAndReserveInDb(OrderRepository repo, Bouquet bouquet, int criticalDelayMs,
+        RequestContext? context, bool useThreadSleep, CancellationToken ct)
+    {
+        int bouquetId = bouquet.Id;
+
+        Log(context, "READ", $"Букет #{bouquetId} — проверка ресурса в БД");
+        if (criticalDelayMs > 0)
+        {
+            // lock удерживает поток, поэтому внутри lock — Thread.Sleep; семафор допускает ожидание.
+            if (useThreadSleep) Thread.Sleep(criticalDelayMs);
+            else ct.WaitHandle.WaitOne(criticalDelayMs);
+        }
+
+        bool reserved = repo.TryReserveOne(bouquetId);   // UPDATE ... WHERE AvailableCount > 0
+        if (!reserved)
+        {
+            Log(context, "FAIL", $"Букет #{bouquetId} — отказ: свободных экземпляров не осталось");
+            throw new OperationException(ErrorCodes.OutOfStock,
+                $"Букет «{bouquet.Name}» недоступен для бронирования: свободных экземпляров не осталось");
+        }
+
+        int after = repo.GetAvailableCount(bouquetId);
+        Log(context, "WRITE", $"Букет #{bouquetId} — установлено {after} шт. (БД)");
+        Log(context, "SUCCESS", $"Букет #{bouquetId} — бронирование подтверждено");
+
+        return Response.Ok(new { bouquetId, bouquet.Name, AvailableAfter = after },
+            $"Букет «{bouquet.Name}» успешно забронирован. Доступно после бронирования: {after} шт.");
+    }
+
+    /// <summary>Установка количества ресурса в БД под критической секцией.</summary>
+    private async Task<Response> SetBouquetAvailabilityInDbAsync(int bouquetId, int count,
+        RequestContext? context, CancellationToken ct)
+    {
+        var repo = RequireRepository();
+        Bouquet bouquet = repo.GetBouquet(bouquetId)
+            ?? throw new OperationException(ErrorCodes.NotFound, $"Букет с Id={bouquetId} не найден в БД");
+
+        switch (Sync)
+        {
+            case SyncMechanism.SemaphoreSlim:
+                await _semaphore.WaitAsync(ct);
+                try { repo.SetAvailableCount(bouquetId, count); }
+                finally { _semaphore.Release(); }
+                break;
+
+            case SyncMechanism.None:
+                repo.SetAvailableCount(bouquetId, count);
+                break;
+
+            default:
+                lock (_syncObject) { repo.SetAvailableCount(bouquetId, count); }
+                break;
+        }
+
+        Log(context, "WRITE", $"SetBouquetAvailability Букет #{bouquetId} — AvailableCount = {count} (БД)");
+        return Response.Ok(new { bouquetId, bouquet.Name, AvailableCount = count },
+            $"Количество доступных букетов «{bouquet.Name}» установлено: {count} шт. (сохранено в БД)");
+    }
+
+    /// <summary>Чтение состояния общего ресурса из БД.</summary>
+    private Response GetBouquetStatusFromDb(JsonElement? payload)
+    {
+        var repo = RequireRepository();
+
+        if (payload is JsonElement p && p.ValueKind == JsonValueKind.Object && p.TryGetProperty("bouquetId", out _))
+        {
+            int bouquetId = GetInt(p, "bouquetId");
+            Bouquet bouquet = repo.GetBouquet(bouquetId)
+                ?? throw new OperationException(ErrorCodes.NotFound, $"Букет с Id={bouquetId} не найден в БД");
+            return Response.Ok(new { bouquetId, bouquet.Name, AvailableCount = bouquet.AvailableCount },
+                $"Букет «{bouquet.Name}» (БД): доступно {bouquet.AvailableCount} шт.");
+        }
+
+        var all = repo.ListBouquets().Select(b => new { b.Id, b.Name, AvailableCount = b.AvailableCount }).ToList();
+        return Response.Ok(new { bouquets = all }, "Состояние общего ресурса получено из БД");
+    }
+
+    /// <summary>
+    /// ЛР №4, часть 3: составная бизнес-операция «создать заказ + зарезервировать букет».
+    /// Два связанных изменения в БД:
+    ///   Operation 1 — INSERT в dbo.Orders;
+    ///   Operation 2 — UPDATE dbo.Bouquets (уменьшение общего ресурса).
+    /// Режимы:
+    ///   useTransaction=true  — BEGIN → обе операции → COMMIT; при ошибке → ROLLBACK (изменения отменяются);
+    ///   useTransaction=false — операции выполняются автокоммитом; ошибка между ними оставляет
+    ///                          ЧАСТИЧНОЕ изменение в БД (для сравнения, Требование 2).
+    /// simulatedError=true — искусственно вызванная ошибка между операциями (Требование 5).
+    /// </summary>
+    public async Task<Response> PlaceOrderAndReserveAsync(JsonElement? payload, RequestContext? context = null,
+        CancellationToken ct = default)
+    {
+        var repo = RequireRepository();
+        var p = payload ?? throw new OperationException(ErrorCodes.ValidationError,
+            "Пустой запрос: требуются customerId, bouquetId, deliveryAddress, deliveryDate");
+
+        int customerId = GetInt(p, "customerId");
+        int bouquetId = GetInt(p, "bouquetId");
+        string address = GetString(p, "deliveryAddress");
+        DateTime deliveryDate = GetDate(p, "deliveryDate");
+        bool useTransaction = GetOptionalBool(p, "useTransaction") ?? true;
+        bool simulatedError = GetOptionalBool(p, "simulatedError") ?? false;
+
+        Log(context, "TX_BEGIN",
+            $"PlaceOrderAndReserve: BEGIN (транзакция={useTransaction}, имитация ошибки={simulatedError})");
+
+        try
+        {
+            PlaceOrderOutcome outcome = await Task.Run(() =>
+                repo.PlaceOrderAndReserve(customerId, bouquetId, address, deliveryDate, useTransaction, simulatedError), ct);
+
+            Log(context, useTransaction ? "COMMIT" : "AUTOCOMMIT",
+                $"PlaceOrderAndReserve: обе операции выполнены, заказ #{outcome.OrderId}, " +
+                $"ресурс {outcome.AvailableBefore} → {outcome.AvailableAfter}");
+
+            string msg = useTransaction
+                ? $"Заказ #{outcome.OrderId} создан и букет зарезервирован в ОДНОЙ транзакции (COMMIT). " +
+                  $"Ресурс: {outcome.AvailableBefore} → {outcome.AvailableAfter} шт."
+                : $"Заказ #{outcome.OrderId} создан и букет зарезервирован БЕЗ транзакции (автокоммит). " +
+                  $"Ресурс: {outcome.AvailableBefore} → {outcome.AvailableAfter} шт.";
+
+            return Response.Ok(new
+            {
+                outcome.OrderId,
+                outcome.BouquetId,
+                outcome.AvailableBefore,
+                outcome.AvailableAfter,
+                outcome.UseTransaction,
+                outcome.SimulatedError
+            }, msg);
+        }
+        catch (OperationException ex)
+        {
+            Log(context, useTransaction ? "ROLLBACK" : "PARTIAL",
+                $"PlaceOrderAndReserve: {ex.Message} " +
+                (useTransaction
+                    ? "— выполнен ROLLBACK, изменения отменены"
+                    : "— транзакции не было, возможны частичные изменения"));
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// ListOrders — операция чтения из БД (Требование 5): возвращает все заказы.
+    /// </summary>
+    public Response ListOrders()
+    {
+        var repo = RequireRepository();
+        var orders = repo.ListOrders()
+            .Select(o => new { o.Id, o.CustomerId, o.BouquetId, o.Status, o.DeliveryDate, o.DeliveryAddress, o.FloristId })
+            .ToList();
+        return Response.Ok(new { count = orders.Count, orders = orders },
+            $"Заказов в БД: {orders.Count}");
+    }
+
+    /// <summary>Репозиторий БД обязателен для операций ЛР №4 — понятная ошибка, если БД не подключена.</summary>
+    private OrderRepository RequireRepository() =>
+        _repository ?? throw new OperationException(ErrorCodes.DatabaseError,
+            "База данных не подключена: операция доступна только при запуске сервера с MSSQL (ЛР №4)");
+
+    /// <summary>Чтение опционального логического поля (null — если поля нет).</summary>
+    private static bool? GetOptionalBool(JsonElement el, string name)
+    {
+        if (!el.TryGetProperty(name, out var v)) return null;
+        if (v.ValueKind == JsonValueKind.True) return true;
+        if (v.ValueKind == JsonValueKind.False) return false;
+        if (v.ValueKind == JsonValueKind.String && bool.TryParse(v.GetString(), out bool b)) return b;
+        throw new OperationException(ErrorCodes.ValidationError, $"Поле '{name}' должно быть логическим (true/false)");
     }
 
     // ----- Вспомогательные методы чтения параметров ----------------------

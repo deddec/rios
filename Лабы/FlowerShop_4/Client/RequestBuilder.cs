@@ -82,4 +82,26 @@ public static class RequestBuilder
         if (delayMs is not null) data = new Dictionary<string, object?> { ["delayMs"] = delayMs.Value };
         return Build("GetServerTime", data);
     }
+
+    // ===== Операции ЛР №4 (база данных и транзакции) =========================
+
+    /// <summary>
+    /// PlaceOrderAndReserve — составная операция «создать заказ + зарезервировать букет» (ЛР №4).
+    /// <paramref name="useTransaction"/>=true — в одной транзакции (COMMIT/ROLLBACK);
+    /// <paramref name="simulatedError"/>=true — искусственно вызванная ошибка между операциями.
+    /// </summary>
+    public static Request PlaceOrderAndReserve(int customerId, int bouquetId, string deliveryAddress,
+        string deliveryDate, bool useTransaction = true, bool simulatedError = false) =>
+        Build("PlaceOrderAndReserve", new
+        {
+            customerId,
+            bouquetId,
+            deliveryAddress,
+            deliveryDate,
+            useTransaction,
+            simulatedError
+        });
+
+    /// <summary>ListOrders — чтение списка заказов из БД.</summary>
+    public static Request ListOrders() => Build("ListOrders");
 }
