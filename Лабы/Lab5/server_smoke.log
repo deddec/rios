@@ -1,0 +1,10 @@
+[Сервер] ЛР №5: инициализация Primary и Replica...
+[Сервер] БД 'FlowerShop' доступна ✓
+[Сервер] БД 'FlowerShopReplica' доступна ✓
+[Сервер] Создание схемы Primary и Replica...
+[Сервер] Схема Primary и Replica инициализирована ✓
+[Сервер] Начальное состояние: Primary = Replica ✓
+[Сервер] ЛР №5: механизм синхронизации общего ресурса — Lock
+[Сервер] Primary=AVAILABLE (FlowerShop), Replica=AVAILABLE (FlowerShopReplica), активный=Primary
+[Сервер] Сервер запущен на порту 5099
+[Сервер] Запущен и ожидает подключений на порту 5099...

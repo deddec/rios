@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="50120d5d-472a-4fa1-8c59-f9a92c53ca40" name="dedco@DEDULA 2026-10-13 18:08:09" runUser="Dedula\dedco" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-10-13T18:08:09.4279728+03:00" queuing="2026-10-13T18:08:09.4279732+03:00" start="2026-10-13T18:08:08.5875972+03:00" finish="2026-10-13T18:08:09.4593091+03:00" />
+  <TestSettings name="default" id="e1b1804e-3866-49f2-b4c6-a52ff1033894">
+    <Deployment runDeploymentRoot="dedco_DEDULA_2026-10-13_18_08_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="df02e4c5-8fa4-4b65-8a08-8ef265e7286c" testId="deee13e2-f4de-24dc-74dd-da5843f47ef4" testName="FlowerShop.Tests.DatabaseTransactionTests.CreateOrderInDb_UnknownBouquet_ReturnsNotFound" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3718641+03:00" endTime="2026-10-13T18:08:09.3718643+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="df02e4c5-8fa4-4b65-8a08-8ef265e7286c">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="51c38c92-d2d5-4aee-8324-b34dda4743a5" testId="7adc01f7-d36e-d76f-4cde-876c668988a4" testName="FlowerShop.Tests.DatabaseTransactionTests.DbOperation_WithoutRepository_ReturnsDatabaseError" computerName="DEDULA" duration="00:00:00.0067958" startTime="2026-10-13T18:08:09.3687615+03:00" endTime="2026-10-13T18:08:09.3687764+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="51c38c92-d2d5-4aee-8324-b34dda4743a5" />
+    <UnitTestResult executionId="4259c508-681d-4f44-83b9-4036a49671e4" testId="1e29c959-1882-8bbb-f70a-69df0c6e951e" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutRepository_ReturnsDatabaseError" computerName="DEDULA" duration="00:00:00.0215128" startTime="2026-10-13T18:08:09.3979220+03:00" endTime="2026-10-13T18:08:09.3979220+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4259c508-681d-4f44-83b9-4036a49671e4" />
+    <UnitTestResult executionId="7dafb77e-e472-47ef-9a85-bded9a789d89" testId="4d9795a6-b948-a80e-17ff-0ac843131fbc" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3729905+03:00" endTime="2026-10-13T18:08:09.3729906+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7dafb77e-e472-47ef-9a85-bded9a789d89">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="292c44f7-46cf-49d0-9600-bfd132163aa1" testId="e5a98661-ef60-9356-a677-e9e771eaa57f" testName="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_NoStock_ReturnsOutOfStock" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3725623+03:00" endTime="2026-10-13T18:08:09.3725624+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="292c44f7-46cf-49d0-9600-bfd132163aa1">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8ad903d5-d46d-4699-9470-e431d32956cf" testId="efa1af95-201f-1061-e989-77fed5f055f3" testName="FlowerShop.Tests.DatabaseTransactionTests.TryPing_ReturnsWellDefinedResult_WithoutException" computerName="DEDULA" duration="00:00:00.0010012" startTime="2026-10-13T18:08:09.3724080+03:00" endTime="2026-10-13T18:08:09.3724081+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ad903d5-d46d-4699-9470-e431d32956cf" />
+    <UnitTestResult executionId="12e6656b-18da-4745-b93a-bc6c76688617" testId="fb6bee01-e025-6bcb-437d-a75a9b1b6854" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3721662+03:00" endTime="2026-10-13T18:08:09.3721662+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12e6656b-18da-4745-b93a-bc6c76688617">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d7365cfe-7484-480d-94fe-a57b296d2d6f" testId="2315788d-e462-a20e-7f19-4a173ef7e79f" testName="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3727571+03:00" endTime="2026-10-13T18:08:09.3727571+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d7365cfe-7484-480d-94fe-a57b296d2d6f">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c7fc06e6-3f56-47ed-84a2-32fbdf2dcd6c" testId="bce88624-72ec-454d-3b2a-1ec3353e3eb4" testName="FlowerShop.Tests.DatabaseTransactionTests.SetAvailabilityAndStatus_InDb_ReadWriteOperations" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3731051+03:00" endTime="2026-10-13T18:08:09.3731052+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c7fc06e6-3f56-47ed-84a2-32fbdf2dcd6c">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2aa0042f-2a42-4ed5-bc05-8270f0094d47" testId="d4bbd33d-c645-8ea7-11ce-80f891582035" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3728777+03:00" endTime="2026-10-13T18:08:09.3728778+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2aa0042f-2a42-4ed5-bc05-8270f0094d47">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8d06c2a6-bf88-4f6b-bc93-14b2f8008d39" testId="aa588074-9681-53ee-e6c4-463bff22b31e" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" computerName="DEDULA" duration="00:00:00.0010000" startTime="2026-10-13T18:08:09.3981912+03:00" endTime="2026-10-13T18:08:09.3981913+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d06c2a6-bf88-4f6b-bc93-14b2f8008d39">
+      <Output>
+        <ErrorInfo>
+          <Message>MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.&#xD;
+Login failed for user 'sa'.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="fb6bee01-e025-6bcb-437d-a75a9b1b6854">
+      <Execution id="12e6656b-18da-4745-b93a-bc6c76688617" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.DbOperation_WithoutRepository_ReturnsDatabaseError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="7adc01f7-d36e-d76f-4cde-876c668988a4">
+      <Execution id="51c38c92-d2d5-4aee-8324-b34dda4743a5" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="DbOperation_WithoutRepository_ReturnsDatabaseError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="2315788d-e462-a20e-7f19-4a173ef7e79f">
+      <Execution id="d7365cfe-7484-480d-94fe-a57b296d2d6f" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.CreateOrderInDb_UnknownBouquet_ReturnsNotFound" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="deee13e2-f4de-24dc-74dd-da5843f47ef4">
+      <Execution id="df02e4c5-8fa4-4b65-8a08-8ef265e7286c" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="CreateOrderInDb_UnknownBouquet_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.TryPing_ReturnsWellDefinedResult_WithoutException" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="efa1af95-201f-1061-e989-77fed5f055f3">
+      <Execution id="8ad903d5-d46d-4699-9470-e431d32956cf" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="TryPing_ReturnsWellDefinedResult_WithoutException" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="d4bbd33d-c645-8ea7-11ce-80f891582035">
+      <Execution id="2aa0042f-2a42-4ed5-bc05-8270f0094d47" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutRepository_ReturnsDatabaseError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="1e29c959-1882-8bbb-f70a-69df0c6e951e">
+      <Execution id="4259c508-681d-4f44-83b9-4036a49671e4" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithoutRepository_ReturnsDatabaseError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="aa588074-9681-53ee-e6c4-463bff22b31e">
+      <Execution id="8d06c2a6-bf88-4f6b-bc93-14b2f8008d39" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="4d9795a6-b948-a80e-17ff-0ac843131fbc">
+      <Execution id="7dafb77e-e472-47ef-9a85-bded9a789d89" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_NoStock_ReturnsOutOfStock" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="e5a98661-ef60-9356-a677-e9e771eaa57f">
+      <Execution id="292c44f7-46cf-49d0-9600-bfd132163aa1" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="ReserveBouquetInDb_NoStock_ReturnsOutOfStock" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.SetAvailabilityAndStatus_InDb_ReadWriteOperations" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="bce88624-72ec-454d-3b2a-1ec3353e3eb4">
+      <Execution id="c7fc06e6-3f56-47ed-84a2-32fbdf2dcd6c" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="SetAvailabilityAndStatus_InDb_ReadWriteOperations" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="deee13e2-f4de-24dc-74dd-da5843f47ef4" executionId="df02e4c5-8fa4-4b65-8a08-8ef265e7286c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7adc01f7-d36e-d76f-4cde-876c668988a4" executionId="51c38c92-d2d5-4aee-8324-b34dda4743a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e29c959-1882-8bbb-f70a-69df0c6e951e" executionId="4259c508-681d-4f44-83b9-4036a49671e4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d9795a6-b948-a80e-17ff-0ac843131fbc" executionId="7dafb77e-e472-47ef-9a85-bded9a789d89" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e5a98661-ef60-9356-a677-e9e771eaa57f" executionId="292c44f7-46cf-49d0-9600-bfd132163aa1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="efa1af95-201f-1061-e989-77fed5f055f3" executionId="8ad903d5-d46d-4699-9470-e431d32956cf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb6bee01-e025-6bcb-437d-a75a9b1b6854" executionId="12e6656b-18da-4745-b93a-bc6c76688617" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2315788d-e462-a20e-7f19-4a173ef7e79f" executionId="d7365cfe-7484-480d-94fe-a57b296d2d6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bce88624-72ec-454d-3b2a-1ec3353e3eb4" executionId="c7fc06e6-3f56-47ed-84a2-32fbdf2dcd6c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4bbd33d-c645-8ea7-11ce-80f891582035" executionId="2aa0042f-2a42-4ed5-bc05-8270f0094d47" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aa588074-9681-53ee-e6c4-463bff22b31e" executionId="8d06c2a6-bf88-4f6b-bc93-14b2f8008d39" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="11" executed="3" passed="3" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 9.0.20)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: FlowerShop.Server.Tests&#xD;
+[xUnit.net 00:00:00.32]   Discovered:  FlowerShop.Server.Tests&#xD;
+[xUnit.net 00:00:00.33]   Starting:    FlowerShop.Server.Tests&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.37]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.CreateOrderInDb_UnknownBouquet_ReturnsNotFound" пропущен в тестовом запуске.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" пропущен в тестовом запуске.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_NoStock_ReturnsOutOfStock" пропущен в тестовом запуске.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" пропущен в тестовом запуске.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" пропущен в тестовом запуске.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" пропущен в тестовом запуске.&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.SetAvailabilityAndStatus_InDb_ReadWriteOperations" пропущен в тестовом запуске.&#xD;
+[xUnit.net 00:00:00.40]       MSSQL недоступна: Ошибка подключения к БД 'FlowerShop': Cannot open database "FlowerShop" requested by the login. The login failed.\r\nLogin failed for user 'sa'.&#xD;
+[xUnit.net 00:00:00.40]   Finished:    FlowerShop.Server.Tests&#xD;
+Тест "FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" пропущен в тестовом запуске.&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3717347+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.CreateOrderInDb_UnknownBouquet_ReturnsNotFound [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3722323+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3725717+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_NoStock_ReturnsOutOfStock [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3727794+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3729001+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithTransaction_CommitsBothOperations [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3730093+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.3731395+03:00">
+        <Text>[xUnit.net 00:00:00.37]     FlowerShop.Tests.DatabaseTransactionTests.SetAvailabilityAndStatus_InDb_ReadWriteOperations [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="DEDULA" outcome="Warning" timestamp="2026-10-13T18:08:09.4352763+03:00">
+        <Text>[xUnit.net 00:00:00.40]     FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges [SKIP]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

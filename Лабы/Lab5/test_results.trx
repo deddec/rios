@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="cad6d4a9-fdc4-4f31-831d-c8de2ccbded7" name="dedco@DEDULA 2026-10-13 18:11:34" runUser="Dedula\dedco" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-10-13T18:11:34.5987163+03:00" queuing="2026-10-13T18:11:34.5987167+03:00" start="2026-10-13T18:11:33.7747381+03:00" finish="2026-10-13T18:11:47.4595912+03:00" />
+  <TestSettings name="default" id="37d585bf-d026-4c75-810e-ea8f5f607473">
+    <Deployment runDeploymentRoot="dedco_DEDULA_2026-10-13_18_11_34" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="414e7f3a-b1e0-4945-91e0-3ed5a0b35e64" testId="658d52d6-1f18-9102-3263-b9136735d05e" testName="FlowerShop.Tests.ReplicationTests.Recover_PrimaryRestored_AndSynchronized" computerName="DEDULA" duration="00:00:00.1099815" startTime="2026-10-13T18:11:35.2610181+03:00" endTime="2026-10-13T18:11:35.2610185+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="414e7f3a-b1e0-4945-91e0-3ed5a0b35e64" />
+    <UnitTestResult executionId="a0dfa66f-3557-4d85-9e93-f270692a348e" testId="bce88624-72ec-454d-3b2a-1ec3353e3eb4" testName="FlowerShop.Tests.DatabaseTransactionTests.SetAvailabilityAndStatus_InDb_ReadWriteOperations" computerName="DEDULA" duration="00:00:00.0275558" startTime="2026-10-13T18:11:35.9001496+03:00" endTime="2026-10-13T18:11:35.9001497+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0dfa66f-3557-4d85-9e93-f270692a348e" />
+    <UnitTestResult executionId="98e893d2-0e0d-48c6-911c-b9a338a037bc" testId="4d9795a6-b948-a80e-17ff-0ac843131fbc" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" computerName="DEDULA" duration="00:00:00.0305625" startTime="2026-10-13T18:11:35.8724633+03:00" endTime="2026-10-13T18:11:35.8724635+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98e893d2-0e0d-48c6-911c-b9a338a037bc" />
+    <UnitTestResult executionId="c1bc9732-ce05-4ff6-9995-d6b8cdd8944a" testId="ec836796-b636-31d1-4ca4-2e0897bcd5bd" testName="FlowerShop.Tests.ReplicationTests.PlaceOrderAndReserve_ReplicatesToReplica" computerName="DEDULA" duration="00:00:00.1032481" startTime="2026-10-13T18:11:35.0127381+03:00" endTime="2026-10-13T18:11:35.0127382+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c1bc9732-ce05-4ff6-9995-d6b8cdd8944a" />
+    <UnitTestResult executionId="afefb1d2-f828-4412-924c-02bfabfb52a3" testId="499b7fc4-bbc7-4f6b-55c7-d4fecce4d075" testName="FlowerShop.Tests.ReplicationTests.Failover_PrimaryDown_SwitchesToReplica" computerName="DEDULA" duration="00:00:00.0555110" startTime="2026-10-13T18:11:35.3842179+03:00" endTime="2026-10-13T18:11:35.3842180+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="afefb1d2-f828-4412-924c-02bfabfb52a3" />
+    <UnitTestResult executionId="4784909e-5c2f-48c8-9381-560ff9fd46fc" testId="5f53cf76-b5dd-50fb-dbf7-d5c51eda9b4b" testName="FlowerShop.Tests.BusinessLogicTests.Handle_UnknownOperation_ReturnsUnknownOperationError(operation: &quot;DeleteWorld&quot;)" computerName="DEDULA" duration="00:00:00.0001435" startTime="2026-10-13T18:11:34.5719517+03:00" endTime="2026-10-13T18:11:34.5719518+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4784909e-5c2f-48c8-9381-560ff9fd46fc" />
+    <UnitTestResult executionId="c8665155-e292-4318-aeeb-a10b63dff907" testId="b7377d61-7059-5cdd-9013-8c79a91945a8" testName="FlowerShop.Tests.NetworkClientTests.Send_ToUnavailableServer_ErrorMentionsHostAndPort" computerName="DEDULA" duration="00:00:02.0426018" startTime="2026-10-13T18:11:38.6233171+03:00" endTime="2026-10-13T18:11:38.6233175+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8665155-e292-4318-aeeb-a10b63dff907" />
+    <UnitTestResult executionId="b5fc2fc3-ac33-4156-8442-aa2206738808" testId="1e29c959-1882-8bbb-f70a-69df0c6e951e" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutRepository_ReturnsDatabaseError" computerName="DEDULA" duration="00:00:00.0006998" startTime="2026-10-13T18:11:35.9009322+03:00" endTime="2026-10-13T18:11:35.9009323+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b5fc2fc3-ac33-4156-8442-aa2206738808" />
+    <UnitTestResult executionId="0e0f051c-1592-49be-95ca-42b4fd36c1e2" testId="870560dc-4767-fb4e-2f20-f6e377bd4b62" testName="FlowerShop.Tests.ReplicationTests.CheckConsistency_ConsistentData_ReportsTrue" computerName="DEDULA" duration="00:00:00.0675251" startTime="2026-10-13T18:11:35.3286210+03:00" endTime="2026-10-13T18:11:35.3286211+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e0f051c-1592-49be-95ca-42b4fd36c1e2" />
+    <UnitTestResult executionId="dd1e8fea-d7e6-4e35-a391-3cf899c1b7a2" testId="16d024e6-8f20-6900-06f9-e7dcb500181d" testName="FlowerShop.Tests.BusinessLogicTests.Handle_FullWorkflow_CreatesOrderPreparesBouquetAssignsFloristArrangesDelivery" computerName="DEDULA" duration="00:00:00.0279090" startTime="2026-10-13T18:11:34.5800685+03:00" endTime="2026-10-13T18:11:34.5800687+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd1e8fea-d7e6-4e35-a391-3cf899c1b7a2" />
+    <UnitTestResult executionId="6098baef-e23f-411f-9b87-84b6318012a0" testId="7adc01f7-d36e-d76f-4cde-876c668988a4" testName="FlowerShop.Tests.DatabaseTransactionTests.DbOperation_WithoutRepository_ReturnsDatabaseError" computerName="DEDULA" duration="00:00:00.0052337" startTime="2026-10-13T18:11:34.5238641+03:00" endTime="2026-10-13T18:11:34.5238803+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6098baef-e23f-411f-9b87-84b6318012a0" />
+    <UnitTestResult executionId="fff92a36-4ba3-4b53-b708-692e4a189c68" testId="d1f8d063-7657-95f5-136d-ec9cf2db7cc1" testName="FlowerShop.Tests.ParallelProcessingTests.OneClient_RequestIsProcessedCorrectly" computerName="DEDULA" duration="00:00:00.0034270" startTime="2026-10-13T18:11:36.8894201+03:00" endTime="2026-10-13T18:11:36.8894202+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fff92a36-4ba3-4b53-b708-692e4a189c68" />
+    <UnitTestResult executionId="3aeda702-808b-4f2e-989c-23707a30981d" testId="4d32fff8-04b1-fd63-8f81-117244092ed9" testName="FlowerShop.Tests.SynchronizationTests.TwoClients_CriticalSections_DoNotOverlap(sync: SemaphoreSlim)" computerName="DEDULA" duration="00:00:01.4205499" startTime="2026-10-13T18:11:40.4228915+03:00" endTime="2026-10-13T18:11:40.4228916+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3aeda702-808b-4f2e-989c-23707a30981d" />
+    <UnitTestResult executionId="3a6ea779-5364-4dcb-ba00-1eaf9fa3698e" testId="fabce297-453d-1fa4-570d-b8e42a87ad7d" testName="FlowerShop.Tests.ReplicationTests.Replication_ThreeSequentialChanges_AlwaysConsistent" computerName="DEDULA" duration="00:00:00.1589552" startTime="2026-10-13T18:11:34.9094045+03:00" endTime="2026-10-13T18:11:34.9094047+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a6ea779-5364-4dcb-ba00-1eaf9fa3698e" />
+    <UnitTestResult executionId="1a7df7d3-0df8-43d1-80e3-ddb5b3055774" testId="d4bbd33d-c645-8ea7-11ce-80f891582035" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" computerName="DEDULA" duration="00:00:00.0322044" startTime="2026-10-13T18:11:35.8417546+03:00" endTime="2026-10-13T18:11:35.8417548+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1a7df7d3-0df8-43d1-80e3-ddb5b3055774" />
+    <UnitTestResult executionId="d9c0f99a-faba-42c5-adc9-fa82adbb431e" testId="e5a98661-ef60-9356-a677-e9e771eaa57f" testName="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_NoStock_ReturnsOutOfStock" computerName="DEDULA" duration="00:00:00.0500646" startTime="2026-10-13T18:11:34.6549040+03:00" endTime="2026-10-13T18:11:34.6549041+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9c0f99a-faba-42c5-adc9-fa82adbb431e" />
+    <UnitTestResult executionId="0fedd9bf-2f73-4ec6-99e3-5636fb73c244" testId="800be0d8-3cd0-de60-be53-a662dde18b1e" testName="FlowerShop.Tests.ReplicationTests.Synchronize_BringsReplicaToActiveState" computerName="DEDULA" duration="00:00:00.1002489" startTime="2026-10-13T18:11:35.7093550+03:00" endTime="2026-10-13T18:11:35.7093551+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0fedd9bf-2f73-4ec6-99e3-5636fb73c244" />
+    <UnitTestResult executionId="1b34a990-bb9c-42c5-bce0-324d3487f65c" testId="35ca10ae-1b12-bf9f-1611-41345b155960" testName="FlowerShop.Tests.ReplicationTests.Replication_AfterChangeInPrimary_CopiesMatchReplica" computerName="DEDULA" duration="00:00:00.0951781" startTime="2026-10-13T18:11:35.5405131+03:00" endTime="2026-10-13T18:11:35.5405133+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1b34a990-bb9c-42c5-bce0-324d3487f65c" />
+    <UnitTestResult executionId="da683c7d-1106-4b7f-a8ac-6767ab0b5954" testId="db91ff95-13e9-1150-ce66-1af719a3abfc" testName="FlowerShop.Tests.TimeSynchronizationTests.MeasureResidualError_BeforeSynchronization_ShowsClockSkew" computerName="DEDULA" duration="00:00:00.0031242" startTime="2026-10-13T18:11:34.5828437+03:00" endTime="2026-10-13T18:11:34.5828439+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da683c7d-1106-4b7f-a8ac-6767ab0b5954" />
+    <UnitTestResult executionId="a0f231db-185a-4704-837f-d00e1809111c" testId="b044c287-1fa6-773a-d14c-ee0fd6779b18" testName="FlowerShop.Tests.ReplicationTests.InitialState_PrimaryEqualsReplica" computerName="DEDULA" duration="00:00:00.0809602" startTime="2026-10-13T18:11:35.0937965+03:00" endTime="2026-10-13T18:11:35.0937966+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0f231db-185a-4704-837f-d00e1809111c" />
+    <UnitTestResult executionId="c23f17eb-00b2-4ca8-97ce-aed79dce08f3" testId="b6ad630d-7737-1379-ab63-eade8703cab1" testName="FlowerShop.Tests.ReplicationTests.BothInstancesUnavailable_ReturnsError" computerName="DEDULA" duration="00:00:00.0606083" startTime="2026-10-13T18:11:35.4449229+03:00" endTime="2026-10-13T18:11:35.4449233+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c23f17eb-00b2-4ca8-97ce-aed79dce08f3" />
+    <UnitTestResult executionId="c4d624c4-2ab9-4be5-a6ff-b676350b0df6" testId="2f85e17a-acf8-d491-c834-e4aaa43f8658" testName="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithInvalidDate_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0258431" startTime="2026-10-13T18:11:34.5718936+03:00" endTime="2026-10-13T18:11:34.5718936+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c4d624c4-2ab9-4be5-a6ff-b676350b0df6" />
+    <UnitTestResult executionId="8d3aa41f-b34f-4772-800b-6b46edd56003" testId="b2d756ab-1070-89e3-daf8-1f8c71e10699" testName="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithValidData_ReturnsSuccess" computerName="DEDULA" duration="00:00:00.0065712" startTime="2026-10-13T18:11:34.5733593+03:00" endTime="2026-10-13T18:11:34.5733594+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d3aa41f-b34f-4772-800b-6b46edd56003" />
+    <UnitTestResult executionId="8a7b2258-ce70-4fa9-a600-ddfe2953df3c" testId="a3fb1280-0b88-b22d-5207-02fe1fef8116" testName="FlowerShop.Tests.BusinessLogicTests.Handle_UnknownOperation_ReturnsUnknownOperationError(operation: &quot;CreateUser&quot;)" computerName="DEDULA" duration="00:00:00.0000305" startTime="2026-10-13T18:11:34.5719739+03:00" endTime="2026-10-13T18:11:34.5719740+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a7b2258-ce70-4fa9-a600-ddfe2953df3c" />
+    <UnitTestResult executionId="4ccbd3f7-2fbb-42d0-90b7-7d0f0dfda4ac" testId="30842390-27ef-d052-0a1a-c5ecfb04c625" testName="FlowerShop.Tests.ReplicationTests.GetInstanceState_ReturnsBothStatesAndActive" computerName="DEDULA" duration="00:00:00.0746872" startTime="2026-10-13T18:11:34.7503740+03:00" endTime="2026-10-13T18:11:34.7503741+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4ccbd3f7-2fbb-42d0-90b7-7d0f0dfda4ac" />
+    <UnitTestResult executionId="367a1811-4117-4e5b-b828-337e46e91512" testId="a1efba08-7c13-119d-cdea-69c2dd59278f" testName="FlowerShop.Tests.RequestHandlerTests.Handle_EmptyOperation_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0000690" startTime="2026-10-13T18:11:34.5718366+03:00" endTime="2026-10-13T18:11:34.5718366+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="367a1811-4117-4e5b-b828-337e46e91512" />
+    <UnitTestResult executionId="1aeb7104-e261-42c2-84ed-e8536fe669bc" testId="a5cac201-ab5a-276a-6220-cb87911e2b18" testName="FlowerShop.Tests.SynchronizationTests.TwoClients_CriticalSections_DoNotOverlap(sync: Lock)" computerName="DEDULA" duration="00:00:01.4181627" startTime="2026-10-13T18:11:39.0018526+03:00" endTime="2026-10-13T18:11:39.0018527+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1aeb7104-e261-42c2-84ed-e8536fe669bc" />
+    <UnitTestResult executionId="907c1220-3e87-45c2-862f-291fe22c350e" testId="814646f8-be9d-14c4-c1ad-91a475860ca0" testName="FlowerShop.Tests.RequestHandlerTests.Handle_InvalidJson_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0017154" startTime="2026-10-13T18:11:34.5734670+03:00" endTime="2026-10-13T18:11:34.5734670+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="907c1220-3e87-45c2-862f-291fe22c350e" />
+    <UnitTestResult executionId="c6502548-0cda-4e0c-ad54-b2e688c6c037" testId="d4abe576-3e76-af5f-a482-76036bf12225" testName="FlowerShop.Tests.RequestHandlerTests.Handle_MissingOperation_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0258946" startTime="2026-10-13T18:11:34.5410289+03:00" endTime="2026-10-13T18:11:34.5410290+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c6502548-0cda-4e0c-ad54-b2e688c6c037" />
+    <UnitTestResult executionId="557d3632-6947-4380-8954-d0ad6ef59ab0" testId="aa588074-9681-53ee-e6c4-463bff22b31e" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" computerName="DEDULA" duration="00:00:00.0181473" startTime="2026-10-13T18:11:35.9191764+03:00" endTime="2026-10-13T18:11:35.9191765+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="557d3632-6947-4380-8954-d0ad6ef59ab0" />
+    <UnitTestResult executionId="9c6726da-2224-43e7-b9ac-2ba61ec917a4" testId="94653486-53d9-ede3-0459-a1fb87907b9a" testName="FlowerShop.Tests.ReplicationTests.ReplicationOperation_WithoutReplication_ReturnsDatabaseError" computerName="DEDULA" duration="00:00:00.0002417" startTime="2026-10-13T18:11:35.4452147+03:00" endTime="2026-10-13T18:11:35.4452148+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c6726da-2224-43e7-b9ac-2ba61ec917a4" />
+    <UnitTestResult executionId="c4d3e425-da74-49d0-9517-febe799852bd" testId="281f48ba-ae6b-a4cb-5ff5-e84a1a69c4b0" testName="FlowerShop.Tests.TimeSynchronizationTests.ParseServerTime_WithInvalidData_ThrowsTimeSynchronizationException" computerName="DEDULA" duration="00:00:00.0009099" startTime="2026-10-13T18:11:36.0997331+03:00" endTime="2026-10-13T18:11:36.0997332+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c4d3e425-da74-49d0-9517-febe799852bd" />
+    <UnitTestResult executionId="e5e74bee-36c1-4f7c-bf4b-bfe3dbb6f34f" testId="0d3465a2-5ac2-cc68-71f5-1afb24501c24" testName="FlowerShop.Tests.ParallelProcessingTests.TwoClients_ReserveLastBouquet_WithoutSync_BothSucceed_RaceConditionOccurs" computerName="DEDULA" duration="00:00:02.3687833" startTime="2026-10-13T18:11:36.8855602+03:00" endTime="2026-10-13T18:11:36.8855603+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e5e74bee-36c1-4f7c-bf4b-bfe3dbb6f34f" />
+    <UnitTestResult executionId="0b8f1b09-738a-4733-8d44-40a162c1aa7a" testId="df95cb15-61af-f97c-6d0e-b6acbef3b4c1" testName="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithEmptyAddress_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0002855" startTime="2026-10-13T18:11:34.5720038+03:00" endTime="2026-10-13T18:11:34.5720038+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b8f1b09-738a-4733-8d44-40a162c1aa7a" />
+    <UnitTestResult executionId="5cbb5895-ce42-43e8-b593-17ec74d0bd53" testId="a1089fe7-f7ad-e809-b2d8-55c8d0f704ec" testName="FlowerShop.Tests.ReplicationTests.DetectFailure_PrimaryUnavailable_StateIsUnavailable" computerName="DEDULA" duration="00:00:00.0570400" startTime="2026-10-13T18:11:35.1509384+03:00" endTime="2026-10-13T18:11:35.1509386+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5cbb5895-ce42-43e8-b593-17ec74d0bd53" />
+    <UnitTestResult executionId="6af71b3f-ad01-4d5d-a4d4-e33a28daad92" testId="8ee6890b-4980-1d35-ad80-63ad384dccfb" testName="FlowerShop.Tests.TimeSynchronizationTests.SyncAsync_WithServerDelay_ReducesAccuracy" computerName="DEDULA" duration="00:00:01.5155352" startTime="2026-10-13T18:11:36.0987480+03:00" endTime="2026-10-13T18:11:36.0987480+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6af71b3f-ad01-4d5d-a4d4-e33a28daad92" />
+    <UnitTestResult executionId="2316d967-783e-4ce9-99e1-770f4fdbc814" testId="3ad02e69-c7df-d13c-bef4-39c0fe9e4131" testName="FlowerShop.Tests.BusinessLogicTests.Handle_CustomizeBouquet_WithNonExistentOrder_ReturnsNotFound(orderId: 999)" computerName="DEDULA" duration="00:00:00.0002054" startTime="2026-10-13T18:11:34.5735423+03:00" endTime="2026-10-13T18:11:34.5735424+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2316d967-783e-4ce9-99e1-770f4fdbc814" />
+    <UnitTestResult executionId="4e83c13f-84c5-49a1-9657-769420fea2dc" testId="3867147a-3355-ec73-88d0-c29cf72e55d2" testName="FlowerShop.Tests.SynchronizationTests.TwoClients_ReserveLastBouquet_OnlyOneSucceeds(sync: Lock)" computerName="DEDULA" duration="00:00:03.0152972" startTime="2026-10-13T18:11:46.4638376+03:00" endTime="2026-10-13T18:11:46.4638378+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e83c13f-84c5-49a1-9657-769420fea2dc" />
+    <UnitTestResult executionId="ac81af16-eeb1-438f-8c2f-bd76c9ebd7fe" testId="d66be744-9b2c-176d-4e1d-82b70f1af5ab" testName="FlowerShop.Tests.BusinessLogicTests.Handle_CustomizeBouquet_WithNonExistentOrder_ReturnsNotFound(orderId: -1)" computerName="DEDULA" duration="00:00:00.0017739" startTime="2026-10-13T18:11:34.5735164+03:00" endTime="2026-10-13T18:11:34.5735164+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac81af16-eeb1-438f-8c2f-bd76c9ebd7fe" />
+    <UnitTestResult executionId="de290c60-0ef4-4fdd-a127-7b3c709ff2ef" testId="0d1f3fd7-2b80-563c-1bfc-0996ddc6f1dd" testName="FlowerShop.Tests.ParallelProcessingTests.TwoClients_BothRequestsAreProcessed" computerName="DEDULA" duration="00:00:00.0053416" startTime="2026-10-13T18:11:47.4077799+03:00" endTime="2026-10-13T18:11:47.4077802+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de290c60-0ef4-4fdd-a127-7b3c709ff2ef" />
+    <UnitTestResult executionId="1ebdde3e-5126-4058-9d89-6a5711f4e43e" testId="5c92c30f-4b4c-bd6f-6e68-ac8acc6825e7" testName="FlowerShop.Tests.ReplicationTests.RequestAfterFailover_IsServedByReplica" computerName="DEDULA" duration="00:00:00.1591150" startTime="2026-10-13T18:11:34.6755987+03:00" endTime="2026-10-13T18:11:34.6755988+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ebdde3e-5126-4058-9d89-6a5711f4e43e" />
+    <UnitTestResult executionId="0ea1fb9a-3789-4a8c-843c-644e7a379d46" testId="efa1af95-201f-1061-e989-77fed5f055f3" testName="FlowerShop.Tests.DatabaseTransactionTests.TryPing_ReturnsWellDefinedResult_WithoutException" computerName="DEDULA" duration="00:00:00.0002164" startTime="2026-10-13T18:11:34.6047709+03:00" endTime="2026-10-13T18:11:34.6047711+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ea1fb9a-3789-4a8c-843c-644e7a379d46" />
+    <UnitTestResult executionId="60a684ba-c5f4-46f2-8a0a-a190d770e67e" testId="dccf76f0-1f23-601e-5afd-f281b76428c6" testName="FlowerShop.Tests.TimeSynchronizationTests.SyncAsync_WithClockSkew_ComputesOffsetAndCorrectsTime(skewSeconds: -5)" computerName="DEDULA" duration="00:00:00.0030393" startTime="2026-10-13T18:11:34.5792547+03:00" endTime="2026-10-13T18:11:34.5792548+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="60a684ba-c5f4-46f2-8a0a-a190d770e67e" />
+    <UnitTestResult executionId="5edd1991-03bb-4b6f-8460-fe93803a0d45" testId="79adc546-c7d2-315f-adca-df776b74b51b" testName="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithNullPayload_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0001533" startTime="2026-10-13T18:11:34.5734044+03:00" endTime="2026-10-13T18:11:34.5734044+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5edd1991-03bb-4b6f-8460-fe93803a0d45" />
+    <UnitTestResult executionId="a913410b-2f6b-4740-8b76-2ca23cd4bfdd" testId="fb6bee01-e025-6bcb-437d-a75a9b1b6854" testName="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" computerName="DEDULA" duration="00:00:00.0363878" startTime="2026-10-13T18:11:34.6044769+03:00" endTime="2026-10-13T18:11:34.6044771+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a913410b-2f6b-4740-8b76-2ca23cd4bfdd" />
+    <UnitTestResult executionId="5ff766f1-7c92-490e-9820-a2e0bd711189" testId="a77ff6bc-6252-088b-67db-7d3a0d2b0199" testName="FlowerShop.Tests.RequestHandlerTests.Handle_UnknownOperation_ReturnsUnknownOperationError" computerName="DEDULA" duration="00:00:00.0001149" startTime="2026-10-13T18:11:34.5716813+03:00" endTime="2026-10-13T18:11:34.5716814+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ff766f1-7c92-490e-9820-a2e0bd711189" />
+    <UnitTestResult executionId="089e595f-0163-4053-9a4f-40ddf6e78887" testId="2315788d-e462-a20e-7f19-4a173ef7e79f" testName="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" computerName="DEDULA" duration="00:00:01.1538880" startTime="2026-10-13T18:11:35.8092984+03:00" endTime="2026-10-13T18:11:35.8092987+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="089e595f-0163-4053-9a4f-40ddf6e78887" />
+    <UnitTestResult executionId="6d0145f0-44c5-4ed5-9d84-11ebcb42af05" testId="bcd5fbf5-63e0-7c3e-9128-24a85fc6a62f" testName="FlowerShop.Tests.TimeSynchronizationTests.SyncAsync_WithClockSkew_ComputesOffsetAndCorrectsTime(skewSeconds: 7)" computerName="DEDULA" duration="00:00:00.0167199" startTime="2026-10-13T18:11:34.5758384+03:00" endTime="2026-10-13T18:11:34.5758386+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d0145f0-44c5-4ed5-9d84-11ebcb42af05" />
+    <UnitTestResult executionId="9c1b4ab6-5878-4293-8e85-8dbf206b5d17" testId="f85a6e3b-471d-d25a-5f39-96ae3aeac517" testName="FlowerShop.Tests.RequestHandlerTests.Handle_ValidJsonRequest_ReturnsSuccess" computerName="DEDULA" duration="00:00:00.0072447" startTime="2026-10-13T18:11:34.5720297+03:00" endTime="2026-10-13T18:11:34.5720298+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c1b4ab6-5878-4293-8e85-8dbf206b5d17" />
+    <UnitTestResult executionId="0a402d06-c290-4065-a85a-a49d29db5f29" testId="c32f69f9-b3ce-d79e-1d75-abf0dd4d416a" testName="FlowerShop.Tests.ReplicationTests.SetInstanceState_InvalidInstance_ReturnsValidationError" computerName="DEDULA" duration="00:00:00.0684149" startTime="2026-10-13T18:11:35.6090052+03:00" endTime="2026-10-13T18:11:35.6090054+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0a402d06-c290-4065-a85a-a49d29db5f29" />
+    <UnitTestResult executionId="e82cbf83-45e6-432c-b859-9ae40cc0a4de" testId="df451bf8-0cb6-0a34-e782-e19528c2ffc5" testName="FlowerShop.Tests.TimeSynchronizationTests.GetServerTime_ReturnsTimeCloseToServerUtcNow" computerName="DEDULA" duration="00:00:00.0387406" startTime="2026-10-13T18:11:34.5735788+03:00" endTime="2026-10-13T18:11:34.5735788+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e82cbf83-45e6-432c-b859-9ae40cc0a4de" />
+    <UnitTestResult executionId="b760972f-4642-4eff-8fee-61c2430e2c34" testId="0ab4d471-ca7c-752e-ad13-a2641c9c0d44" testName="FlowerShop.Tests.BusinessLogicTests.Handle_AssignFlorist_WithNonExistentFlorist_ReturnsNotFound" computerName="DEDULA" duration="00:00:00.0005438" startTime="2026-10-13T18:11:34.5806785+03:00" endTime="2026-10-13T18:11:34.5806786+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b760972f-4642-4eff-8fee-61c2430e2c34" />
+    <UnitTestResult executionId="98051d31-b2fe-4064-a0e9-f611635bb658" testId="e93ae2b4-d4a7-6024-9b4e-3d29c19ccf57" testName="FlowerShop.Tests.BusinessLogicTests.Handle_UnknownOperation_ReturnsUnknownOperationError(operation: &quot;createorder&quot;)" computerName="DEDULA" duration="00:00:00.0002920" startTime="2026-10-13T18:11:34.5719223+03:00" endTime="2026-10-13T18:11:34.5719224+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98051d31-b2fe-4064-a0e9-f611635bb658" />
+    <UnitTestResult executionId="09b816d7-5c8c-4724-a306-dbbe36ea2648" testId="48841920-b50e-73f1-61fa-91db41363fa5" testName="FlowerShop.Tests.SynchronizationTests.SynchronizedReservations_DoNotBlockUnrelatedRequests" computerName="DEDULA" duration="00:00:03.0664622" startTime="2026-10-13T18:11:37.5832872+03:00" endTime="2026-10-13T18:11:37.5832887+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09b816d7-5c8c-4724-a306-dbbe36ea2648" />
+    <UnitTestResult executionId="ecf7750f-4397-4ce3-bc96-424f663a666a" testId="0d632961-f813-90e2-c782-e9a5f9d40406" testName="FlowerShop.Tests.NetworkClientTests.Send_ToUnavailableServer_ThrowsServerUnavailableException" computerName="DEDULA" duration="00:00:02.0640363" startTime="2026-10-13T18:11:36.5805767+03:00" endTime="2026-10-13T18:11:36.5805768+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ecf7750f-4397-4ce3-bc96-424f663a666a" />
+    <UnitTestResult executionId="0daf8e81-ce3f-4e8e-b1e0-fb9d2a247c57" testId="deee13e2-f4de-24dc-74dd-da5843f47ef4" testName="FlowerShop.Tests.DatabaseTransactionTests.CreateOrderInDb_UnknownBouquet_ReturnsNotFound" computerName="DEDULA" duration="00:00:00.0444571" startTime="2026-10-13T18:11:34.5736074+03:00" endTime="2026-10-13T18:11:34.5736075+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0daf8e81-ce3f-4e8e-b1e0-fb9d2a247c57" />
+    <UnitTestResult executionId="4755f10c-0073-4180-ab25-52077a04fa96" testId="1be098e0-5c45-5a94-6d97-542274fdba7e" testName="FlowerShop.Tests.SynchronizationTests.TwoClients_ReserveLastBouquet_OnlyOneSucceeds(sync: SemaphoreSlim)" computerName="DEDULA" duration="00:00:03.0245794" startTime="2026-10-13T18:11:43.4480818+03:00" endTime="2026-10-13T18:11:43.4480820+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4755f10c-0073-4180-ab25-52077a04fa96" />
+    <UnitTestResult executionId="c9e8eac6-98a4-4b39-a2ad-420bc09aa08d" testId="c7f29d12-a3a7-a40e-bb96-864978bf54eb" testName="FlowerShop.Tests.ParallelProcessingTests.TwoClients_WithTenSecondDelay_AreProcessedInParallel" computerName="DEDULA" duration="00:00:10.5120255" startTime="2026-10-13T18:11:47.4019905+03:00" endTime="2026-10-13T18:11:47.4019907+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c9e8eac6-98a4-4b39-a2ad-420bc09aa08d" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="FlowerShop.Tests.SynchronizationTests.TwoClients_CriticalSections_DoNotOverlap(sync: Lock)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="a5cac201-ab5a-276a-6220-cb87911e2b18">
+      <Execution id="1aeb7104-e261-42c2-84ed-e8536fe669bc" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.SynchronizationTests" name="TwoClients_CriticalSections_DoNotOverlap" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_FullWorkflow_CreatesOrderPreparesBouquetAssignsFloristArrangesDelivery" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="16d024e6-8f20-6900-06f9-e7dcb500181d">
+      <Execution id="dd1e8fea-d7e6-4e35-a391-3cf899c1b7a2" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_FullWorkflow_CreatesOrderPreparesBouquetAssignsFloristArrangesDelivery" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.BothInstancesUnavailable_ReturnsError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="b6ad630d-7737-1379-ab63-eade8703cab1">
+      <Execution id="c23f17eb-00b2-4ca8-97ce-aed79dce08f3" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="BothInstancesUnavailable_ReturnsError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.GetInstanceState_ReturnsBothStatesAndActive" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="30842390-27ef-d052-0a1a-c5ecfb04c625">
+      <Execution id="4ccbd3f7-2fbb-42d0-90b7-7d0f0dfda4ac" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="GetInstanceState_ReturnsBothStatesAndActive" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.TimeSynchronizationTests.GetServerTime_ReturnsTimeCloseToServerUtcNow" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="df451bf8-0cb6-0a34-e782-e19528c2ffc5">
+      <Execution id="e82cbf83-45e6-432c-b859-9ae40cc0a4de" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.TimeSynchronizationTests" name="GetServerTime_ReturnsTimeCloseToServerUtcNow" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.ReplicationOperation_WithoutReplication_ReturnsDatabaseError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="94653486-53d9-ede3-0459-a1fb87907b9a">
+      <Execution id="9c6726da-2224-43e7-b9ac-2ba61ec917a4" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="ReplicationOperation_WithoutReplication_ReturnsDatabaseError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.SetInstanceState_InvalidInstance_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="c32f69f9-b3ce-d79e-1d75-abf0dd4d416a">
+      <Execution id="0a402d06-c290-4065-a85a-a49d29db5f29" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="SetInstanceState_InvalidInstance_ReturnsValidationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ParallelProcessingTests.OneClient_RequestIsProcessedCorrectly" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="d1f8d063-7657-95f5-136d-ec9cf2db7cc1">
+      <Execution id="fff92a36-4ba3-4b53-b708-692e4a189c68" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ParallelProcessingTests" name="OneClient_RequestIsProcessedCorrectly" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_NoStock_ReturnsOutOfStock" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="e5a98661-ef60-9356-a677-e9e771eaa57f">
+      <Execution id="d9c0f99a-faba-42c5-adc9-fa82adbb431e" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="ReserveBouquetInDb_NoStock_ReturnsOutOfStock" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.Failover_PrimaryDown_SwitchesToReplica" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="499b7fc4-bbc7-4f6b-55c7-d4fecce4d075">
+      <Execution id="afefb1d2-f828-4412-924c-02bfabfb52a3" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="Failover_PrimaryDown_SwitchesToReplica" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutRepository_ReturnsDatabaseError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="1e29c959-1882-8bbb-f70a-69df0c6e951e">
+      <Execution id="b5fc2fc3-ac33-4156-8442-aa2206738808" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithoutRepository_ReturnsDatabaseError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithEmptyAddress_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="df95cb15-61af-f97c-6d0e-b6acbef3b4c1">
+      <Execution id="0b8f1b09-738a-4733-8d44-40a162c1aa7a" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_CreateOrder_WithEmptyAddress_ReturnsValidationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.SetAvailabilityAndStatus_InDb_ReadWriteOperations" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="bce88624-72ec-454d-3b2a-1ec3353e3eb4">
+      <Execution id="a0dfa66f-3557-4d85-9e93-f270692a348e" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="SetAvailabilityAndStatus_InDb_ReadWriteOperations" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.Synchronize_BringsReplicaToActiveState" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="800be0d8-3cd0-de60-be53-a662dde18b1e">
+      <Execution id="0fedd9bf-2f73-4ec6-99e3-5636fb73c244" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="Synchronize_BringsReplicaToActiveState" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.NetworkClientTests.Send_ToUnavailableServer_ThrowsServerUnavailableException" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="0d632961-f813-90e2-c782-e9a5f9d40406">
+      <Execution id="ecf7750f-4397-4ce3-bc96-424f663a666a" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.NetworkClientTests" name="Send_ToUnavailableServer_ThrowsServerUnavailableException" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.TimeSynchronizationTests.MeasureResidualError_BeforeSynchronization_ShowsClockSkew" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="db91ff95-13e9-1150-ce66-1af719a3abfc">
+      <Execution id="da683c7d-1106-4b7f-a8ac-6767ab0b5954" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.TimeSynchronizationTests" name="MeasureResidualError_BeforeSynchronization_ShowsClockSkew" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_CustomizeBouquet_WithNonExistentOrder_ReturnsNotFound(orderId: 999)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="3ad02e69-c7df-d13c-bef4-39c0fe9e4131">
+      <Execution id="2316d967-783e-4ce9-99e1-770f4fdbc814" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_CustomizeBouquet_WithNonExistentOrder_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ParallelProcessingTests.TwoClients_ReserveLastBouquet_WithoutSync_BothSucceed_RaceConditionOccurs" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="0d3465a2-5ac2-cc68-71f5-1afb24501c24">
+      <Execution id="e5e74bee-36c1-4f7c-bf4b-bfe3dbb6f34f" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ParallelProcessingTests" name="TwoClients_ReserveLastBouquet_WithoutSync_BothSucceed_RaceConditionOccurs" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.CheckConsistency_ConsistentData_ReportsTrue" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="870560dc-4767-fb4e-2f20-f6e377bd4b62">
+      <Execution id="0e0f051c-1592-49be-95ca-42b4fd36c1e2" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="CheckConsistency_ConsistentData_ReportsTrue" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="4d9795a6-b948-a80e-17ff-0ac843131fbc">
+      <Execution id="98e893d2-0e0d-48c6-911c-b9a338a037bc" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithoutTransaction_SimulatedError_LeavesPartialOrder" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.RequestHandlerTests.Handle_UnknownOperation_ReturnsUnknownOperationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="a77ff6bc-6252-088b-67db-7d3a0d2b0199">
+      <Execution id="5ff766f1-7c92-490e-9820-a2e0bd711189" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.RequestHandlerTests" name="Handle_UnknownOperation_ReturnsUnknownOperationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.TimeSynchronizationTests.SyncAsync_WithClockSkew_ComputesOffsetAndCorrectsTime(skewSeconds: -5)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="dccf76f0-1f23-601e-5afd-f281b76428c6">
+      <Execution id="60a684ba-c5f4-46f2-8a0a-a190d770e67e" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.TimeSynchronizationTests" name="SyncAsync_WithClockSkew_ComputesOffsetAndCorrectsTime" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="d4bbd33d-c645-8ea7-11ce-80f891582035">
+      <Execution id="1a7df7d3-0df8-43d1-80e3-ddb5b3055774" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithTransaction_CommitsBothOperations" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.InitialState_PrimaryEqualsReplica" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="b044c287-1fa6-773a-d14c-ee0fd6779b18">
+      <Execution id="a0f231db-185a-4704-837f-d00e1809111c" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="InitialState_PrimaryEqualsReplica" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.Replication_AfterChangeInPrimary_CopiesMatchReplica" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="35ca10ae-1b12-bf9f-1611-41345b155960">
+      <Execution id="1b34a990-bb9c-42c5-bce0-324d3487f65c" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="Replication_AfterChangeInPrimary_CopiesMatchReplica" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.Recover_PrimaryRestored_AndSynchronized" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="658d52d6-1f18-9102-3263-b9136735d05e">
+      <Execution id="414e7f3a-b1e0-4945-91e0-3ed5a0b35e64" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="Recover_PrimaryRestored_AndSynchronized" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.RequestHandlerTests.Handle_EmptyOperation_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="a1efba08-7c13-119d-cdea-69c2dd59278f">
+      <Execution id="367a1811-4117-4e5b-b828-337e46e91512" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.RequestHandlerTests" name="Handle_EmptyOperation_ReturnsValidationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.RequestAfterFailover_IsServedByReplica" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="5c92c30f-4b4c-bd6f-6e68-ac8acc6825e7">
+      <Execution id="1ebdde3e-5126-4058-9d89-6a5711f4e43e" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="RequestAfterFailover_IsServedByReplica" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithNullPayload_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="79adc546-c7d2-315f-adca-df776b74b51b">
+      <Execution id="5edd1991-03bb-4b6f-8460-fe93803a0d45" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_CreateOrder_WithNullPayload_ReturnsValidationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.DetectFailure_PrimaryUnavailable_StateIsUnavailable" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="a1089fe7-f7ad-e809-b2d8-55c8d0f704ec">
+      <Execution id="5cbb5895-ce42-43e8-b593-17ec74d0bd53" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="DetectFailure_PrimaryUnavailable_StateIsUnavailable" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.RequestHandlerTests.Handle_InvalidJson_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="814646f8-be9d-14c4-c1ad-91a475860ca0">
+      <Execution id="907c1220-3e87-45c2-862f-291fe22c350e" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.RequestHandlerTests" name="Handle_InvalidJson_ReturnsValidationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="2315788d-e462-a20e-7f19-4a173ef7e79f">
+      <Execution id="089e595f-0163-4053-9a4f-40ddf6e78887" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="ReserveBouquetInDb_TwoConcurrentRequests_ExactlyOneSucceeds" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.TimeSynchronizationTests.SyncAsync_WithClockSkew_ComputesOffsetAndCorrectsTime(skewSeconds: 7)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="bcd5fbf5-63e0-7c3e-9128-24a85fc6a62f">
+      <Execution id="6d0145f0-44c5-4ed5-9d84-11ebcb42af05" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.TimeSynchronizationTests" name="SyncAsync_WithClockSkew_ComputesOffsetAndCorrectsTime" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_UnknownOperation_ReturnsUnknownOperationError(operation: &quot;CreateUser&quot;)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="a3fb1280-0b88-b22d-5207-02fe1fef8116">
+      <Execution id="8a7b2258-ce70-4fa9-a600-ddfe2953df3c" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_UnknownOperation_ReturnsUnknownOperationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.Replication_ThreeSequentialChanges_AlwaysConsistent" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="fabce297-453d-1fa4-570d-b8e42a87ad7d">
+      <Execution id="3a6ea779-5364-4dcb-ba00-1eaf9fa3698e" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="Replication_ThreeSequentialChanges_AlwaysConsistent" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.SynchronizationTests.TwoClients_CriticalSections_DoNotOverlap(sync: SemaphoreSlim)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="4d32fff8-04b1-fd63-8f81-117244092ed9">
+      <Execution id="3aeda702-808b-4f2e-989c-23707a30981d" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.SynchronizationTests" name="TwoClients_CriticalSections_DoNotOverlap" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ReplicationTests.PlaceOrderAndReserve_ReplicatesToReplica" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="ec836796-b636-31d1-4ca4-2e0897bcd5bd">
+      <Execution id="c1bc9732-ce05-4ff6-9995-d6b8cdd8944a" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ReplicationTests" name="PlaceOrderAndReserve_ReplicatesToReplica" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.DbOperation_WithoutRepository_ReturnsDatabaseError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="7adc01f7-d36e-d76f-4cde-876c668988a4">
+      <Execution id="6098baef-e23f-411f-9b87-84b6318012a0" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="DbOperation_WithoutRepository_ReturnsDatabaseError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_UnknownOperation_ReturnsUnknownOperationError(operation: &quot;DeleteWorld&quot;)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="5f53cf76-b5dd-50fb-dbf7-d5c51eda9b4b">
+      <Execution id="4784909e-5c2f-48c8-9381-560ff9fd46fc" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_UnknownOperation_ReturnsUnknownOperationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.SynchronizationTests.TwoClients_ReserveLastBouquet_OnlyOneSucceeds(sync: Lock)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="3867147a-3355-ec73-88d0-c29cf72e55d2">
+      <Execution id="4e83c13f-84c5-49a1-9657-769420fea2dc" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.SynchronizationTests" name="TwoClients_ReserveLastBouquet_OnlyOneSucceeds" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.CreateOrderInDb_UnknownBouquet_ReturnsNotFound" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="deee13e2-f4de-24dc-74dd-da5843f47ef4">
+      <Execution id="0daf8e81-ce3f-4e8e-b1e0-fb9d2a247c57" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="CreateOrderInDb_UnknownBouquet_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.TimeSynchronizationTests.ParseServerTime_WithInvalidData_ThrowsTimeSynchronizationException" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="281f48ba-ae6b-a4cb-5ff5-e84a1a69c4b0">
+      <Execution id="c4d3e425-da74-49d0-9517-febe799852bd" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.TimeSynchronizationTests" name="ParseServerTime_WithInvalidData_ThrowsTimeSynchronizationException" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ParallelProcessingTests.TwoClients_WithTenSecondDelay_AreProcessedInParallel" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="c7f29d12-a3a7-a40e-bb96-864978bf54eb">
+      <Execution id="c9e8eac6-98a4-4b39-a2ad-420bc09aa08d" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ParallelProcessingTests" name="TwoClients_WithTenSecondDelay_AreProcessedInParallel" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_AssignFlorist_WithNonExistentFlorist_ReturnsNotFound" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="0ab4d471-ca7c-752e-ad13-a2641c9c0d44">
+      <Execution id="b760972f-4642-4eff-8fee-61c2430e2c34" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_AssignFlorist_WithNonExistentFlorist_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.SynchronizationTests.TwoClients_ReserveLastBouquet_OnlyOneSucceeds(sync: SemaphoreSlim)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="1be098e0-5c45-5a94-6d97-542274fdba7e">
+      <Execution id="4755f10c-0073-4180-ab25-52077a04fa96" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.SynchronizationTests" name="TwoClients_ReserveLastBouquet_OnlyOneSucceeds" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_UnknownOperation_ReturnsUnknownOperationError(operation: &quot;createorder&quot;)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="e93ae2b4-d4a7-6024-9b4e-3d29c19ccf57">
+      <Execution id="98051d31-b2fe-4064-a0e9-f611635bb658" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_UnknownOperation_ReturnsUnknownOperationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.RequestHandlerTests.Handle_ValidJsonRequest_ReturnsSuccess" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="f85a6e3b-471d-d25a-5f39-96ae3aeac517">
+      <Execution id="9c1b4ab6-5878-4293-8e85-8dbf206b5d17" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.RequestHandlerTests" name="Handle_ValidJsonRequest_ReturnsSuccess" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_CustomizeBouquet_WithNonExistentOrder_ReturnsNotFound(orderId: -1)" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="d66be744-9b2c-176d-4e1d-82b70f1af5ab">
+      <Execution id="ac81af16-eeb1-438f-8c2f-bd76c9ebd7fe" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_CustomizeBouquet_WithNonExistentOrder_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.SynchronizationTests.SynchronizedReservations_DoNotBlockUnrelatedRequests" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="48841920-b50e-73f1-61fa-91db41363fa5">
+      <Execution id="09b816d7-5c8c-4724-a306-dbbe36ea2648" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.SynchronizationTests" name="SynchronizedReservations_DoNotBlockUnrelatedRequests" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="fb6bee01-e025-6bcb-437d-a75a9b1b6854">
+      <Execution id="a913410b-2f6b-4740-8b76-2ca23cd4bfdd" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_UnknownCustomer_FailsWithoutChanges" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.TryPing_ReturnsWellDefinedResult_WithoutException" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="efa1af95-201f-1061-e989-77fed5f055f3">
+      <Execution id="0ea1fb9a-3789-4a8c-843c-644e7a379d46" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="TryPing_ReturnsWellDefinedResult_WithoutException" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.NetworkClientTests.Send_ToUnavailableServer_ErrorMentionsHostAndPort" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="b7377d61-7059-5cdd-9013-8c79a91945a8">
+      <Execution id="c8665155-e292-4318-aeeb-a10b63dff907" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.NetworkClientTests" name="Send_ToUnavailableServer_ErrorMentionsHostAndPort" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.RequestHandlerTests.Handle_MissingOperation_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="d4abe576-3e76-af5f-a482-76036bf12225">
+      <Execution id="c6502548-0cda-4e0c-ad54-b2e688c6c037" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.RequestHandlerTests" name="Handle_MissingOperation_ReturnsValidationError" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithValidData_ReturnsSuccess" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="b2d756ab-1070-89e3-daf8-1f8c71e10699">
+      <Execution id="8d3aa41f-b34f-4772-800b-6b46edd56003" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_CreateOrder_WithValidData_ReturnsSuccess" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.ParallelProcessingTests.TwoClients_BothRequestsAreProcessed" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="0d1f3fd7-2b80-563c-1bfc-0996ddc6f1dd">
+      <Execution id="de290c60-0ef4-4fdd-a127-7b3c709ff2ef" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.ParallelProcessingTests" name="TwoClients_BothRequestsAreProcessed" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.TimeSynchronizationTests.SyncAsync_WithServerDelay_ReducesAccuracy" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="8ee6890b-4980-1d35-ad80-63ad384dccfb">
+      <Execution id="6af71b3f-ad01-4d5d-a4d4-e33a28daad92" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.TimeSynchronizationTests" name="SyncAsync_WithServerDelay_ReducesAccuracy" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.DatabaseTransactionTests.PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="aa588074-9681-53ee-e6c4-463bff22b31e">
+      <Execution id="557d3632-6947-4380-8954-d0ad6ef59ab0" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.DatabaseTransactionTests" name="PlaceOrderAndReserve_WithSimulatedError_TransactionRollsBack_NoPartialChanges" />
+    </UnitTest>
+    <UnitTest name="FlowerShop.Tests.BusinessLogicTests.Handle_CreateOrder_WithInvalidDate_ReturnsValidationError" storage="c:\файлы рабочий стол\лабы 4 курс\риот\лабы\lab5\server.tests\bin\debug\net9.0\flowershop.server.tests.dll" id="2f85e17a-acf8-d491-c834-e4aaa43f8658">
+      <Execution id="c4d624c4-2ab9-4be5-a6ff-b676350b0df6" />
+      <TestMethod codeBase="C:\Файлы рабочий стол\Лабы 4 курс\РИОТ\Лабы\Lab5\Server.Tests\bin\Debug\net9.0\FlowerShop.Server.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FlowerShop.Tests.BusinessLogicTests" name="Handle_CreateOrder_WithInvalidDate_ReturnsValidationError" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="658d52d6-1f18-9102-3263-b9136735d05e" executionId="414e7f3a-b1e0-4945-91e0-3ed5a0b35e64" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bce88624-72ec-454d-3b2a-1ec3353e3eb4" executionId="a0dfa66f-3557-4d85-9e93-f270692a348e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d9795a6-b948-a80e-17ff-0ac843131fbc" executionId="98e893d2-0e0d-48c6-911c-b9a338a037bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ec836796-b636-31d1-4ca4-2e0897bcd5bd" executionId="c1bc9732-ce05-4ff6-9995-d6b8cdd8944a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="499b7fc4-bbc7-4f6b-55c7-d4fecce4d075" executionId="afefb1d2-f828-4412-924c-02bfabfb52a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f53cf76-b5dd-50fb-dbf7-d5c51eda9b4b" executionId="4784909e-5c2f-48c8-9381-560ff9fd46fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b7377d61-7059-5cdd-9013-8c79a91945a8" executionId="c8665155-e292-4318-aeeb-a10b63dff907" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e29c959-1882-8bbb-f70a-69df0c6e951e" executionId="b5fc2fc3-ac33-4156-8442-aa2206738808" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="870560dc-4767-fb4e-2f20-f6e377bd4b62" executionId="0e0f051c-1592-49be-95ca-42b4fd36c1e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="16d024e6-8f20-6900-06f9-e7dcb500181d" executionId="dd1e8fea-d7e6-4e35-a391-3cf899c1b7a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7adc01f7-d36e-d76f-4cde-876c668988a4" executionId="6098baef-e23f-411f-9b87-84b6318012a0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1f8d063-7657-95f5-136d-ec9cf2db7cc1" executionId="fff92a36-4ba3-4b53-b708-692e4a189c68" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d32fff8-04b1-fd63-8f81-117244092ed9" executionId="3aeda702-808b-4f2e-989c-23707a30981d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fabce297-453d-1fa4-570d-b8e42a87ad7d" executionId="3a6ea779-5364-4dcb-ba00-1eaf9fa3698e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4bbd33d-c645-8ea7-11ce-80f891582035" executionId="1a7df7d3-0df8-43d1-80e3-ddb5b3055774" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e5a98661-ef60-9356-a677-e9e771eaa57f" executionId="d9c0f99a-faba-42c5-adc9-fa82adbb431e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="800be0d8-3cd0-de60-be53-a662dde18b1e" executionId="0fedd9bf-2f73-4ec6-99e3-5636fb73c244" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="35ca10ae-1b12-bf9f-1611-41345b155960" executionId="1b34a990-bb9c-42c5-bce0-324d3487f65c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="db91ff95-13e9-1150-ce66-1af719a3abfc" executionId="da683c7d-1106-4b7f-a8ac-6767ab0b5954" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b044c287-1fa6-773a-d14c-ee0fd6779b18" executionId="a0f231db-185a-4704-837f-d00e1809111c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6ad630d-7737-1379-ab63-eade8703cab1" executionId="c23f17eb-00b2-4ca8-97ce-aed79dce08f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f85e17a-acf8-d491-c834-e4aaa43f8658" executionId="c4d624c4-2ab9-4be5-a6ff-b676350b0df6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b2d756ab-1070-89e3-daf8-1f8c71e10699" executionId="8d3aa41f-b34f-4772-800b-6b46edd56003" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3fb1280-0b88-b22d-5207-02fe1fef8116" executionId="8a7b2258-ce70-4fa9-a600-ddfe2953df3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30842390-27ef-d052-0a1a-c5ecfb04c625" executionId="4ccbd3f7-2fbb-42d0-90b7-7d0f0dfda4ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1efba08-7c13-119d-cdea-69c2dd59278f" executionId="367a1811-4117-4e5b-b828-337e46e91512" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5cac201-ab5a-276a-6220-cb87911e2b18" executionId="1aeb7104-e261-42c2-84ed-e8536fe669bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="814646f8-be9d-14c4-c1ad-91a475860ca0" executionId="907c1220-3e87-45c2-862f-291fe22c350e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4abe576-3e76-af5f-a482-76036bf12225" executionId="c6502548-0cda-4e0c-ad54-b2e688c6c037" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aa588074-9681-53ee-e6c4-463bff22b31e" executionId="557d3632-6947-4380-8954-d0ad6ef59ab0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94653486-53d9-ede3-0459-a1fb87907b9a" executionId="9c6726da-2224-43e7-b9ac-2ba61ec917a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="281f48ba-ae6b-a4cb-5ff5-e84a1a69c4b0" executionId="c4d3e425-da74-49d0-9517-febe799852bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d3465a2-5ac2-cc68-71f5-1afb24501c24" executionId="e5e74bee-36c1-4f7c-bf4b-bfe3dbb6f34f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df95cb15-61af-f97c-6d0e-b6acbef3b4c1" executionId="0b8f1b09-738a-4733-8d44-40a162c1aa7a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1089fe7-f7ad-e809-b2d8-55c8d0f704ec" executionId="5cbb5895-ce42-43e8-b593-17ec74d0bd53" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8ee6890b-4980-1d35-ad80-63ad384dccfb" executionId="6af71b3f-ad01-4d5d-a4d4-e33a28daad92" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3ad02e69-c7df-d13c-bef4-39c0fe9e4131" executionId="2316d967-783e-4ce9-99e1-770f4fdbc814" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3867147a-3355-ec73-88d0-c29cf72e55d2" executionId="4e83c13f-84c5-49a1-9657-769420fea2dc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d66be744-9b2c-176d-4e1d-82b70f1af5ab" executionId="ac81af16-eeb1-438f-8c2f-bd76c9ebd7fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d1f3fd7-2b80-563c-1bfc-0996ddc6f1dd" executionId="de290c60-0ef4-4fdd-a127-7b3c709ff2ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c92c30f-4b4c-bd6f-6e68-ac8acc6825e7" executionId="1ebdde3e-5126-4058-9d89-6a5711f4e43e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="efa1af95-201f-1061-e989-77fed5f055f3" executionId="0ea1fb9a-3789-4a8c-843c-644e7a379d46" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dccf76f0-1f23-601e-5afd-f281b76428c6" executionId="60a684ba-c5f4-46f2-8a0a-a190d770e67e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79adc546-c7d2-315f-adca-df776b74b51b" executionId="5edd1991-03bb-4b6f-8460-fe93803a0d45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb6bee01-e025-6bcb-437d-a75a9b1b6854" executionId="a913410b-2f6b-4740-8b76-2ca23cd4bfdd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a77ff6bc-6252-088b-67db-7d3a0d2b0199" executionId="5ff766f1-7c92-490e-9820-a2e0bd711189" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2315788d-e462-a20e-7f19-4a173ef7e79f" executionId="089e595f-0163-4053-9a4f-40ddf6e78887" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bcd5fbf5-63e0-7c3e-9128-24a85fc6a62f" executionId="6d0145f0-44c5-4ed5-9d84-11ebcb42af05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f85a6e3b-471d-d25a-5f39-96ae3aeac517" executionId="9c1b4ab6-5878-4293-8e85-8dbf206b5d17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c32f69f9-b3ce-d79e-1d75-abf0dd4d416a" executionId="0a402d06-c290-4065-a85a-a49d29db5f29" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df451bf8-0cb6-0a34-e782-e19528c2ffc5" executionId="e82cbf83-45e6-432c-b859-9ae40cc0a4de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ab4d471-ca7c-752e-ad13-a2641c9c0d44" executionId="b760972f-4642-4eff-8fee-61c2430e2c34" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e93ae2b4-d4a7-6024-9b4e-3d29c19ccf57" executionId="98051d31-b2fe-4064-a0e9-f611635bb658" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="48841920-b50e-73f1-61fa-91db41363fa5" executionId="09b816d7-5c8c-4724-a306-dbbe36ea2648" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d632961-f813-90e2-c782-e9a5f9d40406" executionId="ecf7750f-4397-4ce3-bc96-424f663a666a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="deee13e2-f4de-24dc-74dd-da5843f47ef4" executionId="0daf8e81-ce3f-4e8e-b1e0-fb9d2a247c57" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1be098e0-5c45-5a94-6d97-542274fdba7e" executionId="4755f10c-0073-4180-ab25-52077a04fa96" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7f29d12-a3a7-a40e-bb96-864978bf54eb" executionId="c9e8eac6-98a4-4b39-a2ad-420bc09aa08d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="58" executed="58" passed="58" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 9.0.20)&#xD;
+[xUnit.net 00:00:00.11]   Discovering: FlowerShop.Server.Tests&#xD;
+[xUnit.net 00:00:00.34]   Discovered:  FlowerShop.Server.Tests&#xD;
+[xUnit.net 00:00:00.34]   Starting:    FlowerShop.Server.Tests&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58210...&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58212...&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58211...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58213 \u001a Client 1&#xD;
+[18:11:34.528] Client 1 \u001a CONNECT    -                      Task=1 Thread=24&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58214 \u001a Client 1&#xD;
+[18:11:34.538] Client 1 \u001a CONNECT    -                      Task=2 Thread=22&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58215 \u001a Client 1&#xD;
+[18:11:34.538] Client 1 \u001a CONNECT    -                      Task=3 Thread=22&#xD;
+[18:11:34.540] Client 1 \u001a START      SetBouquetAvailability Task=- Thread=22&#xD;
+[18:11:34.540] Client 1 \u001a START      GetServerTime          Task=- Thread=20&#xD;
+[18:11:34.540] Client 1 \u001a START      SetBouquetAvailability Task=- Thread=25&#xD;
+[18:11:34.540] Client 1 \u001a TIME       GetServerTime          Task=- Thread=20  �६� �ࢥ�: 15:11:34.540 UTC&#xD;
+[18:11:34.541] Client 1 \u001a WRITE      SetBouquetAvailability Task=- Thread=22  SetBouquetAvailability �㪥� #1 - AvailableCount = 2&#xD;
+[18:11:34.541] Client 1 \u001a WRITE      SetBouquetAvailability Task=- Thread=25  SetBouquetAvailability �㪥� #1 - AvailableCount = 1&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[18:11:34.542] Client 1 \u001a END        GetServerTime          Task=- Thread=20 (0,003 �)&#xD;
+[18:11:34.542] Client 1 \u001a END        SetBouquetAvailability Task=- Thread=22 (0,003 �)&#xD;
+[18:11:34.542] Client 1 \u001a END        SetBouquetAvailability Task=- Thread=25 (0,003 �)&#xD;
+[18:11:34.552] Client 1 \u001a DISCONNECT -                      Task=- Thread=20&#xD;
+[18:11:34.552] Client 1 \u001a DISCONNECT -                      Task=- Thread=25&#xD;
+[18:11:34.552] Client 1 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[��ࢥ�] ����⨥: BouquetPrepared (����� #1)&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58217...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58218 \u001a Client 1&#xD;
+[18:11:34.561] Client 1 \u001a CONNECT    -                      Task=4 Thread=28&#xD;
+[18:11:34.561] Client 1 \u001a START      GetServerTime          Task=4 Thread=28&#xD;
+[18:11:34.561] Client 1 \u001a TIME       GetServerTime          Task=4 Thread=28  �६� �ࢥ�: 15:11:34.561 UTC&#xD;
+[18:11:34.561] Client 1 \u001a END        GetServerTime          Task=4 Thread=28 (0,000 �)&#xD;
+[18:11:34.561] Client 1 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58219 \u001a Client 2&#xD;
+[18:11:34.567] Client 2 \u001a CONNECT    -                      Task=5 Thread=21&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58220 \u001a Client 2&#xD;
+[18:11:34.567] Client 2 \u001a CONNECT    -                      Task=6 Thread=28&#xD;
+[18:11:34.567] Client 2 \u001a START      ReserveBouquet         Task=6 Thread=28&#xD;
+[18:11:34.567] Client 2 \u001a START      ReserveBouquet         Task=- Thread=21&#xD;
+[��ࢥ�] ����⨥: FloristAssigned (����� #1)&#xD;
+[18:11:34.569] Client 2 \u001a LOCK       ReserveBouquet         Task=6 Thread=28  �㪥� #1 - �室 � ������� ᥪ�� (lock)&#xD;
+[18:11:34.569] Client 2 \u001a READ       ReserveBouquet         Task=6 Thread=28  �㪥� #1 - ����㯭� 2 ��.&#xD;
+[18:11:34.569] Client 2 \u001a READ       ReserveBouquet         Task=- Thread=21  �㪥� #1 - ����㯭� 1 ��. (��� ᨭ�஭���樨)&#xD;
+[��ࢥ�] ����⨥: DeliveryArranged (����� #1)&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58221 \u001a Client 2&#xD;
+[18:11:34.571] Client 2 \u001a CONNECT    -                      Task=7 Thread=25&#xD;
+[18:11:34.571] Client 2 \u001a START      GetServerTime          Task=7 Thread=25&#xD;
+[18:11:34.571] Client 2 \u001a TIME       GetServerTime          Task=7 Thread=25  �६� �ࢥ�: 15:11:34.571 UTC&#xD;
+[18:11:34.571] Client 2 \u001a END        GetServerTime          Task=7 Thread=25 (0,000 �)&#xD;
+[18:11:34.571] Client 2 \u001a DISCONNECT -                      Task=- Thread=25&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58222...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58223 \u001a Client 1&#xD;
+[18:11:34.576] Client 1 \u001a CONNECT    -                      Task=8 Thread=25&#xD;
+[18:11:34.577] Client 1 \u001a START      GetServerTime          Task=- Thread=25&#xD;
+[18:11:34.577] Client 1 \u001a TIME       GetServerTime          Task=- Thread=25  �६� �ࢥ�: 15:11:34.577 UTC&#xD;
+[18:11:34.577] Client 1 \u001a END        GetServerTime          Task=- Thread=25 (0,000 �)&#xD;
+[18:11:34.577] Client 1 \u001a DISCONNECT -                      Task=- Thread=25&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58224 \u001a Client 2&#xD;
+[18:11:34.578] Client 2 \u001a CONNECT    -                      Task=9 Thread=23&#xD;
+[18:11:34.578] Client 2 \u001a START      GetServerTime          Task=- Thread=25&#xD;
+[18:11:34.578] Client 2 \u001a TIME       GetServerTime          Task=- Thread=25  �६� �ࢥ�: 15:11:34.578 UTC&#xD;
+[18:11:34.578] Client 2 \u001a END        GetServerTime          Task=- Thread=25 (0,000 �)&#xD;
+[18:11:34.578] Client 2 \u001a DISCONNECT -                      Task=- Thread=25&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58225...&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58226 \u001a Client 1&#xD;
+[18:11:34.581] Client 1 \u001a CONNECT    -                      Task=10 Thread=8&#xD;
+[18:11:34.581] Client 1 \u001a START      GetServerTime          Task=- Thread=8&#xD;
+[18:11:34.581] Client 1 \u001a TIME       GetServerTime          Task=- Thread=8  �६� �ࢥ�: 15:11:34.581 UTC&#xD;
+[18:11:34.581] Client 1 \u001a END        GetServerTime          Task=- Thread=8 (0,000 �)&#xD;
+[18:11:34.581] Client 1 \u001a DISCONNECT -                      Task=- Thread=8&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58227...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58228 \u001a Client 1&#xD;
+[18:11:34.584] Client 1 \u001a CONNECT    -                      Task=11 Thread=8&#xD;
+[18:11:34.584] Client 1 \u001a START      GetServerTime          Task=- Thread=8&#xD;
+[��ࢥ�] ��ᯥਬ��⠫쭠� ����প� ��ࠡ�⪨: 1500 ��...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58229 \u001a Client 3&#xD;
+[18:11:34.674] Client 3 \u001a CONNECT    -                      Task=12 Thread=8&#xD;
+[18:11:34.674] Client 3 \u001a START      ReserveBouquet         Task=12 Thread=8&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58230 \u001a Client 3&#xD;
+[18:11:34.875] Client 3 \u001a CONNECT    -                      Task=13 Thread=24&#xD;
+[18:11:34.875] Client 3 \u001a START      ReserveBouquet         Task=13 Thread=24&#xD;
+[18:11:34.875] Client 3 \u001a READ       ReserveBouquet         Task=13 Thread=24  �㪥� #1 - ����㯭� 1 ��. (��� ᨭ�஭���樨)&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58231 \u001a Client 4&#xD;
+[18:11:34.876] Client 4 \u001a CONNECT    -                      Task=14 Thread=24&#xD;
+[18:11:34.877] Client 4 \u001a START      CreateOrder            Task=- Thread=24&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[18:11:34.877] Client 4 \u001a END        CreateOrder            Task=- Thread=24 (0,000 �)&#xD;
+[18:11:34.877] Client 4 \u001a DISCONNECT -                      Task=- Thread=24&#xD;
+[18:11:36.080] Client 2 \u001a WRITE      ReserveBouquet         Task=6 Thread=28  �㪥� #1 - ��⠭������ 1 ��.&#xD;
+[18:11:36.080] Client 2 \u001a SUCCESS    ReserveBouquet         Task=6 Thread=28  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:36.080] Client 2 \u001a UNLOCK     ReserveBouquet         Task=6 Thread=28  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (lock)&#xD;
+[18:11:36.080] Client 2 \u001a END        ReserveBouquet         Task=6 Thread=28 (1,513 �)&#xD;
+[18:11:36.080] Client 3 \u001a LOCK       ReserveBouquet         Task=12 Thread=8  �㪥� #1 - �室 � ������� ᥪ�� (lock)&#xD;
+[18:11:36.080] Client 3 \u001a READ       ReserveBouquet         Task=12 Thread=8  �㪥� #1 - ����㯭� 1 ��.&#xD;
+[18:11:36.081] Client 2 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[18:11:36.096] Client 1 \u001a TIME       GetServerTime          Task=- Thread=28  �६� �ࢥ�: 15:11:36.096 UTC&#xD;
+[18:11:36.096] Client 1 \u001a END        GetServerTime          Task=- Thread=28 (1,512 �)&#xD;
+[18:11:36.096] Client 1 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58233 \u001a Client 2&#xD;
+[18:11:36.097] Client 2 \u001a CONNECT    -                      Task=15 Thread=19&#xD;
+[18:11:36.097] Client 2 \u001a START      GetServerTime          Task=15 Thread=19&#xD;
+[18:11:36.097] Client 2 \u001a TIME       GetServerTime          Task=15 Thread=19  �६� �ࢥ�: 15:11:36.097 UTC&#xD;
+[18:11:36.097] Client 2 \u001a END        GetServerTime          Task=15 Thread=19 (0,000 �)&#xD;
+[18:11:36.098] Client 2 \u001a DISCONNECT -                      Task=- Thread=19&#xD;
+[18:11:36.579] Client 2 \u001a WRITE      ReserveBouquet         Task=- Thread=18  �㪥� #1 - ��⠭������ 0 ��. (��� ᨭ�஭���樨)&#xD;
+[18:11:36.579] Client 2 \u001a SUCCESS    ReserveBouquet         Task=- Thread=18  �㪥� #1 - �஭�஢���� ���⢥ত��� (��� ᨭ�஭���樨)&#xD;
+[18:11:36.579] Client 2 \u001a END        ReserveBouquet         Task=- Thread=18 (2,012 �)&#xD;
+[18:11:36.580] Client 2 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[18:11:36.876] Client 3 \u001a WRITE      ReserveBouquet         Task=- Thread=18  �㪥� #1 - ��⠭������ -1 ��. (��� ᨭ�஭���樨)&#xD;
+[18:11:36.876] Client 3 \u001a SUCCESS    ReserveBouquet         Task=- Thread=18  �㪥� #1 - �஭�஢���� ���⢥ত��� (��� ᨭ�஭���樨)&#xD;
+[18:11:36.876] Client 3 \u001a END        ReserveBouquet         Task=- Thread=18 (2,001 �)&#xD;
+[18:11:36.877] Client 3 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58238 \u001a Client 4&#xD;
+[18:11:36.882] Client 4 \u001a CONNECT    -                      Task=16 Thread=18&#xD;
+[18:11:36.882] Client 4 \u001a START      GetBouquetStatus       Task=16 Thread=18&#xD;
+[18:11:36.882] Client 4 \u001a END        GetBouquetStatus       Task=16 Thread=18 (0,000 �)&#xD;
+[18:11:36.883] Client 4 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58239...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58240 \u001a Client 1&#xD;
+[18:11:36.887] Client 1 \u001a CONNECT    -                      Task=17 Thread=20&#xD;
+[18:11:36.887] Client 1 \u001a START      CreateOrder            Task=17 Thread=20&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[18:11:36.887] Client 1 \u001a END        CreateOrder            Task=17 Thread=20 (0,000 �)&#xD;
+[18:11:36.888] Client 1 \u001a DISCONNECT -                      Task=- Thread=20&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58241...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58242 \u001a Client 1&#xD;
+[18:11:36.891] Client 1 \u001a CONNECT    -                      Task=18 Thread=20&#xD;
+[18:11:36.891] Client 1 \u001a START      CreateOrder            Task=18 Thread=20&#xD;
+[��ࢥ�] ��ᯥਬ��⠫쭠� ����প� ��ࠡ�⪨: 10000 ��...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58243 \u001a Client 2&#xD;
+[18:11:37.397] Client 2 \u001a CONNECT    -                      Task=19 Thread=28&#xD;
+[18:11:37.397] Client 2 \u001a START      CreateOrder            Task=19 Thread=28&#xD;
+[��ࢥ�] ��ᯥਬ��⠫쭠� ����প� ��ࠡ�⪨: 10000 ��...&#xD;
+[18:11:37.581] Client 3 \u001a WRITE      ReserveBouquet         Task=12 Thread=8  �㪥� #1 - ��⠭������ 0 ��.&#xD;
+[18:11:37.581] Client 3 \u001a SUCCESS    ReserveBouquet         Task=12 Thread=8  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:37.581] Client 3 \u001a UNLOCK     ReserveBouquet         Task=12 Thread=8  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (lock)&#xD;
+[18:11:37.581] Client 3 \u001a END        ReserveBouquet         Task=12 Thread=8 (2,907 �)&#xD;
+[18:11:37.582] Client 3 \u001a DISCONNECT -                      Task=- Thread=8&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58244...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58245 \u001a Client 1&#xD;
+[18:11:37.585] Client 1 \u001a CONNECT    -                      Task=20 Thread=28&#xD;
+[18:11:37.585] Client 1 \u001a START      SetBouquetAvailability Task=- Thread=28&#xD;
+[18:11:37.585] Client 1 \u001a WRITE      SetBouquetAvailability Task=- Thread=28  SetBouquetAvailability �㪥� #1 - AvailableCount = 2&#xD;
+[18:11:37.585] Client 1 \u001a END        SetBouquetAvailability Task=- Thread=28 (0,000 �)&#xD;
+[18:11:37.585] Client 1 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58246 \u001a Client 2&#xD;
+[18:11:37.586] Client 2 \u001a CONNECT    -                      Task=21 Thread=18&#xD;
+[18:11:37.586] Client 2 \u001a START      ReserveBouquet         Task=21 Thread=18&#xD;
+[18:11:37.586] Client 2 \u001a LOCK       ReserveBouquet         Task=21 Thread=18  �㪥� #1 - �室 � ������� ᥪ�� (lock)&#xD;
+[18:11:37.586] Client 2 \u001a READ       ReserveBouquet         Task=21 Thread=18  �㪥� #1 - ����㯭� 2 ��.&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58247 \u001a Client 3&#xD;
+[18:11:37.737] Client 3 \u001a CONNECT    -                      Task=22 Thread=28&#xD;
+[18:11:37.737] Client 3 \u001a START      ReserveBouquet         Task=22 Thread=28&#xD;
+[18:11:38.297] Client 2 \u001a WRITE      ReserveBouquet         Task=21 Thread=18  �㪥� #1 - ��⠭������ 1 ��.&#xD;
+[18:11:38.297] Client 2 \u001a SUCCESS    ReserveBouquet         Task=21 Thread=18  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:38.297] Client 2 \u001a UNLOCK     ReserveBouquet         Task=21 Thread=18  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (lock)&#xD;
+[18:11:38.297] Client 2 \u001a END        ReserveBouquet         Task=21 Thread=18 (0,711 �)&#xD;
+[18:11:38.297] Client 3 \u001a LOCK       ReserveBouquet         Task=22 Thread=28  �㪥� #1 - �室 � ������� ᥪ�� (lock)&#xD;
+[18:11:38.297] Client 3 \u001a READ       ReserveBouquet         Task=22 Thread=28  �㪥� #1 - ����㯭� 1 ��.&#xD;
+[18:11:38.297] Client 2 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[18:11:38.999] Client 3 \u001a WRITE      ReserveBouquet         Task=22 Thread=28  �㪥� #1 - ��⠭������ 0 ��.&#xD;
+[18:11:38.999] Client 3 \u001a SUCCESS    ReserveBouquet         Task=22 Thread=28  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:38.999] Client 3 \u001a UNLOCK     ReserveBouquet         Task=22 Thread=28  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (lock)&#xD;
+[18:11:38.999] Client 3 \u001a END        ReserveBouquet         Task=22 Thread=28 (1,262 �)&#xD;
+[18:11:38.999] Client 3 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58248...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58249 \u001a Client 1&#xD;
+[18:11:39.002] Client 1 \u001a CONNECT    -                      Task=23 Thread=17&#xD;
+[18:11:39.002] Client 1 \u001a START      SetBouquetAvailability Task=23 Thread=17&#xD;
+[18:11:39.003] Client 1 \u001a WRITE      SetBouquetAvailability Task=23 Thread=17  SetBouquetAvailability �㪥� #1 - AvailableCount = 2&#xD;
+[18:11:39.003] Client 1 \u001a END        SetBouquetAvailability Task=23 Thread=17 (0,000 �)&#xD;
+[18:11:39.003] Client 1 \u001a DISCONNECT -                      Task=- Thread=17&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58250 \u001a Client 2&#xD;
+[18:11:39.003] Client 2 \u001a CONNECT    -                      Task=24 Thread=18&#xD;
+[18:11:39.003] Client 2 \u001a START      ReserveBouquet         Task=- Thread=18&#xD;
+[18:11:39.004] Client 2 \u001a LOCK       ReserveBouquet         Task=- Thread=18  �㪥� #1 - �室 � ������� ᥪ�� (SemaphoreSlim)&#xD;
+[18:11:39.004] Client 2 \u001a READ       ReserveBouquet         Task=- Thread=18  �㪥� #1 - ����㯭� 2 ��.&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58251 \u001a Client 3&#xD;
+[18:11:39.157] Client 3 \u001a CONNECT    -                      Task=25 Thread=28&#xD;
+[18:11:39.157] Client 3 \u001a START      ReserveBouquet         Task=25 Thread=28&#xD;
+[18:11:39.717] Client 2 \u001a WRITE      ReserveBouquet         Task=- Thread=28  �㪥� #1 - ��⠭������ 1 ��.&#xD;
+[18:11:39.717] Client 2 \u001a SUCCESS    ReserveBouquet         Task=- Thread=28  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:39.717] Client 2 \u001a UNLOCK     ReserveBouquet         Task=- Thread=28  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (SemaphoreSlim)&#xD;
+[18:11:39.717] Client 3 \u001a LOCK       ReserveBouquet         Task=- Thread=17  �㪥� #1 - �室 � ������� ᥪ�� (SemaphoreSlim)&#xD;
+[18:11:39.717] Client 2 \u001a END        ReserveBouquet         Task=- Thread=28 (0,713 �)&#xD;
+[18:11:39.717] Client 3 \u001a READ       ReserveBouquet         Task=- Thread=17  �㪥� #1 - ����㯭� 1 ��.&#xD;
+[18:11:39.717] Client 2 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[18:11:40.421] Client 3 \u001a WRITE      ReserveBouquet         Task=- Thread=28  �㪥� #1 - ��⠭������ 0 ��.&#xD;
+[18:11:40.421] Client 3 \u001a SUCCESS    ReserveBouquet         Task=- Thread=28  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:40.421] Client 3 \u001a UNLOCK     ReserveBouquet         Task=- Thread=28  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (SemaphoreSlim)&#xD;
+[18:11:40.421] Client 3 \u001a END        ReserveBouquet         Task=- Thread=28 (1,264 �)&#xD;
+[18:11:40.421] Client 3 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58252...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58253 \u001a Client 1&#xD;
+[18:11:40.425] Client 1 \u001a CONNECT    -                      Task=26 Thread=18&#xD;
+[18:11:40.425] Client 1 \u001a START      SetBouquetAvailability Task=26 Thread=18&#xD;
+[18:11:40.425] Client 1 \u001a WRITE      SetBouquetAvailability Task=26 Thread=18  SetBouquetAvailability �㪥� #1 - AvailableCount = 1&#xD;
+[18:11:40.425] Client 1 \u001a END        SetBouquetAvailability Task=26 Thread=18 (0,000 �)&#xD;
+[18:11:40.425] Client 1 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58254 \u001a Client 2&#xD;
+[18:11:40.426] Client 2 \u001a CONNECT    -                      Task=27 Thread=17&#xD;
+[18:11:40.426] Client 2 \u001a START      ReserveBouquet         Task=27 Thread=17&#xD;
+[18:11:40.426] Client 2 \u001a LOCK       ReserveBouquet         Task=27 Thread=17  �㪥� #1 - �室 � ������� ᥪ�� (SemaphoreSlim)&#xD;
+[18:11:40.426] Client 2 \u001a READ       ReserveBouquet         Task=27 Thread=17  �㪥� #1 - ����㯭� 1 ��.&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58255 \u001a Client 3&#xD;
+[18:11:40.639] Client 3 \u001a CONNECT    -                      Task=28 Thread=17&#xD;
+[18:11:40.639] Client 3 \u001a START      ReserveBouquet         Task=28 Thread=17&#xD;
+[18:11:41.937] Client 2 \u001a WRITE      ReserveBouquet         Task=- Thread=17  �㪥� #1 - ��⠭������ 0 ��.&#xD;
+[18:11:41.937] Client 2 \u001a SUCCESS    ReserveBouquet         Task=- Thread=17  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:41.937] Client 2 \u001a UNLOCK     ReserveBouquet         Task=- Thread=17  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (SemaphoreSlim)&#xD;
+[18:11:41.937] Client 2 \u001a END        ReserveBouquet         Task=- Thread=17 (1,511 �)&#xD;
+[18:11:41.937] Client 3 \u001a LOCK       ReserveBouquet         Task=- Thread=18  �㪥� #1 - �室 � ������� ᥪ�� (SemaphoreSlim)&#xD;
+[18:11:41.937] Client 3 \u001a READ       ReserveBouquet         Task=- Thread=18  �㪥� #1 - ����㯭� 0 ��.&#xD;
+[18:11:41.938] Client 2 \u001a DISCONNECT -                      Task=- Thread=17&#xD;
+[18:11:43.445] Client 3 \u001a FAIL       ReserveBouquet         Task=- Thread=17  �㪥� #1 - �⪠�: ᢮������ ��������஢ �� ��⠫���&#xD;
+[18:11:43.445] Client 3 \u001a UNLOCK     ReserveBouquet         Task=- Thread=17  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (SemaphoreSlim)&#xD;
+[18:11:43.445] Client 3 \u001a END        ReserveBouquet         Task=- Thread=17 (2,806 �)&#xD;
+[18:11:43.445] Client 3 \u001a DISCONNECT -                      Task=- Thread=17&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58256 \u001a Client 4&#xD;
+[18:11:43.446] Client 4 \u001a CONNECT    -                      Task=29 Thread=17&#xD;
+[18:11:43.446] Client 4 \u001a START      GetBouquetStatus       Task=29 Thread=17&#xD;
+[18:11:43.446] Client 4 \u001a END        GetBouquetStatus       Task=29 Thread=17 (0,000 �)&#xD;
+[18:11:43.446] Client 4 \u001a DISCONNECT -                      Task=- Thread=17&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58257...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58258 \u001a Client 1&#xD;
+[18:11:43.449] Client 1 \u001a CONNECT    -                      Task=30 Thread=18&#xD;
+[18:11:43.449] Client 1 \u001a START      SetBouquetAvailability Task=30 Thread=18&#xD;
+[18:11:43.449] Client 1 \u001a WRITE      SetBouquetAvailability Task=30 Thread=18  SetBouquetAvailability �㪥� #1 - AvailableCount = 1&#xD;
+[18:11:43.449] Client 1 \u001a END        SetBouquetAvailability Task=30 Thread=18 (0,000 �)&#xD;
+[18:11:43.450] Client 1 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58259 \u001a Client 2&#xD;
+[18:11:43.450] Client 2 \u001a CONNECT    -                      Task=31 Thread=28&#xD;
+[18:11:43.450] Client 2 \u001a START      ReserveBouquet         Task=31 Thread=28&#xD;
+[18:11:43.450] Client 2 \u001a LOCK       ReserveBouquet         Task=31 Thread=28  �㪥� #1 - �室 � ������� ᥪ�� (lock)&#xD;
+[18:11:43.450] Client 2 \u001a READ       ReserveBouquet         Task=31 Thread=28  �㪥� #1 - ����㯭� 1 ��.&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58260 \u001a Client 3&#xD;
+[18:11:43.654] Client 3 \u001a CONNECT    -                      Task=32 Thread=18&#xD;
+[18:11:43.654] Client 3 \u001a START      ReserveBouquet         Task=32 Thread=18&#xD;
+[18:11:44.955] Client 2 \u001a WRITE      ReserveBouquet         Task=31 Thread=28  �㪥� #1 - ��⠭������ 0 ��.&#xD;
+[18:11:44.955] Client 2 \u001a SUCCESS    ReserveBouquet         Task=31 Thread=28  �㪥� #1 - �஭�஢���� ���⢥ত���&#xD;
+[18:11:44.955] Client 2 \u001a UNLOCK     ReserveBouquet         Task=31 Thread=28  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (lock)&#xD;
+[18:11:44.955] Client 2 \u001a END        ReserveBouquet         Task=31 Thread=28 (1,504 �)&#xD;
+[18:11:44.955] Client 3 \u001a LOCK       ReserveBouquet         Task=32 Thread=18  �㪥� #1 - �室 � ������� ᥪ�� (lock)&#xD;
+[18:11:44.955] Client 3 \u001a READ       ReserveBouquet         Task=32 Thread=18  �㪥� #1 - ����㯭� 0 ��.&#xD;
+[18:11:44.955] Client 2 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[18:11:46.461] Client 3 \u001a FAIL       ReserveBouquet         Task=32 Thread=18  �㪥� #1 - �⪠�: ᢮������ ��������஢ �� ��⠫���&#xD;
+[18:11:46.461] Client 3 \u001a UNLOCK     ReserveBouquet         Task=32 Thread=18  �㪥� #1 - ��室 �� ����᪮� ᥪ樨 (lock)&#xD;
+[18:11:46.461] Client 3 \u001a END        ReserveBouquet         Task=32 Thread=18 (2,806 �)&#xD;
+[18:11:46.461] Client 3 \u001a DISCONNECT -                      Task=- Thread=18&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58261 \u001a Client 4&#xD;
+[18:11:46.462] Client 4 \u001a CONNECT    -                      Task=33 Thread=20&#xD;
+[18:11:46.462] Client 4 \u001a START      GetBouquetStatus       Task=33 Thread=20&#xD;
+[18:11:46.462] Client 4 \u001a END        GetBouquetStatus       Task=33 Thread=20 (0,000 �)&#xD;
+[18:11:46.462] Client 4 \u001a DISCONNECT -                      Task=- Thread=20&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[18:11:46.900] Client 1 \u001a END        CreateOrder            Task=- Thread=28 (10,009 �)&#xD;
+[18:11:46.901] Client 1 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #2)&#xD;
+[18:11:47.399] Client 2 \u001a END        CreateOrder            Task=- Thread=28 (10,003 �)&#xD;
+[18:11:47.400] Client 2 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[��ࢥ�] ����饭 � ������� ������祭�� �� ����� 58262...&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58263 \u001a Client 1&#xD;
+[18:11:47.404] Client 1 \u001a CONNECT    -                      Task=34 Thread=20&#xD;
+[��ࢥ�] ����� ������祭��: 127.0.0.1:58264 \u001a Client 2&#xD;
+[18:11:47.404] Client 2 \u001a CONNECT    -                      Task=35 Thread=20&#xD;
+[18:11:47.404] Client 1 \u001a START      CreateOrder            Task=- Thread=28&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #1)&#xD;
+[18:11:47.404] Client 1 \u001a END        CreateOrder            Task=- Thread=28 (0,000 �)&#xD;
+[18:11:47.404] Client 2 \u001a START      CreateOrder            Task=- Thread=17&#xD;
+[��ࢥ�] ����⨥: OrderCreated (����� #2)&#xD;
+[18:11:47.404] Client 2 \u001a END        CreateOrder            Task=- Thread=17 (0,000 �)&#xD;
+[18:11:47.404] Client 1 \u001a DISCONNECT -                      Task=- Thread=28&#xD;
+[18:11:47.404] Client 2 \u001a DISCONNECT -                      Task=- Thread=17&#xD;
+[xUnit.net 00:00:13.27]   Finished:    FlowerShop.Server.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
