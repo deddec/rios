@@ -8,3 +8,59 @@
 [Сервер] Primary=AVAILABLE (FlowerShop), Replica=AVAILABLE (FlowerShopReplica), активный=Primary
 [Сервер] Сервер запущен на порту 5099
 [Сервер] Запущен и ожидает подключений на порту 5099...
+[Сервер] Новое подключение: 127.0.0.1:61435 → Client 1
+[19:03:58.889] Client 1 → CONNECT    -                      Task=1 Thread=9
+[19:03:58.931] Client 1 → START      GetInstanceState       Task=- Thread=9
+[19:03:58.951] Client 1 → END        GetInstanceState       Task=- Thread=9 (0,020 с)
+[19:03:58.960] Client 1 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61436 → Client 2
+[19:03:58.969] Client 2 → CONNECT    -                      Task=2 Thread=9
+[19:03:58.971] Client 2 → START      SetBouquetAvailability Task=- Thread=9
+[19:03:58.983] Client 2 → WRITE      SetBouquetAvailability Task=- Thread=9  SetBouquetAvailability Букет #2 — AvailableCount = 5 (БД)
+[19:03:58.984] Client 2 → REPLICATION SetBouquetAvailability Task=- Thread=9  Replication → START: передача изменений Primary → Replica
+[Репликация] REPLICATION: Replication → START: передача изменений Primary → Replica
+[19:03:59.017] Client 2 → REPLICATION SetBouquetAvailability Task=- Thread=9  Replication → SUCCESS: Primary = Replica (данные согласованы)
+[Репликация] REPLICATION: Replication → SUCCESS: Primary = Replica (данные согласованы)
+[19:03:59.020] Client 2 → END        SetBouquetAvailability Task=- Thread=9 (0,049 с)
+[19:03:59.021] Client 2 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61437 → Client 3
+[19:03:59.024] Client 3 → CONNECT    -                      Task=3 Thread=9
+[19:03:59.024] Client 3 → START      CheckConsistency       Task=3 Thread=9
+[19:03:59.034] Client 3 → END        CheckConsistency       Task=3 Thread=9 (0,010 с)
+[19:03:59.035] Client 3 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61438 → Client 4
+[19:03:59.038] Client 4 → CONNECT    -                      Task=4 Thread=9
+[19:03:59.040] Client 4 → START      SetInstanceState       Task=- Thread=9
+[Репликация] STATE: Primary → UNAVAILABLE (смоделировано клиентом/тестом)
+[19:03:59.041] Client 4 → END        SetInstanceState       Task=- Thread=9 (0,002 с)
+[19:03:59.042] Client 4 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61439 → Client 5
+[19:03:59.045] Client 5 → CONNECT    -                      Task=5 Thread=9
+[19:03:59.045] Client 5 → START      Failover               Task=5 Thread=9
+[19:03:59.046] Client 5 → FAILOVER   Failover               Task=5 Thread=9  Failover выполнен: Primary → Replica. Запросы обслуживаются через Replica (FlowerShopReplica).
+[Репликация] FAILOVER: Failover выполнен: Primary → Replica. Запросы обслуживаются через Replica (FlowerShopReplica).
+[19:03:59.047] Client 5 → END        Failover               Task=5 Thread=9 (0,002 с)
+[19:03:59.047] Client 5 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61440 → Client 6
+[19:03:59.048] Client 6 → CONNECT    -                      Task=6 Thread=9
+[19:03:59.049] Client 6 → START      GetBouquetStatus       Task=- Thread=9
+[19:03:59.053] Client 6 → END        GetBouquetStatus       Task=- Thread=9 (0,004 с)
+[19:03:59.053] Client 6 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61441 → Client 7
+[19:03:59.054] Client 7 → CONNECT    -                      Task=7 Thread=9
+[19:03:59.054] Client 7 → START      Recover                Task=7 Thread=9
+[19:03:59.055] Client 7 → RECOVERY   Recover                Task=7 Thread=9  Recovery → START: восстановление Primary
+[Репликация] RECOVERY: Recovery → START: восстановление Primary
+[19:03:59.055] Client 7 → SYNCHRONIZATION Recover                Task=7 Thread=9  Синхронизация после восстановления: Replica → Primary
+[Репликация] SYNCHRONIZATION: Синхронизация после восстановления: Replica → Primary
+[19:03:59.075] Client 7 → RECOVERY   Recover                Task=7 Thread=9  Recovery → SUCCESS: Primary восстановлен и синхронизирован. Активный экземпляр снова Primary.
+[Репликация] RECOVERY: Recovery → SUCCESS: Primary восстановлен и синхронизирован. Активный экземпляр снова Primary.
+[19:03:59.084] Client 7 → RECOVERY   Recover                Task=7 Thread=9  Проверка после восстановления: Primary = Replica (согласованы)
+[Репликация] RECOVERY: Проверка после восстановления: Primary = Replica (согласованы)
+[19:03:59.093] Client 7 → END        Recover                Task=7 Thread=9 (0,038 с)
+[19:03:59.094] Client 7 → DISCONNECT -                      Task=- Thread=9
+[Сервер] Новое подключение: 127.0.0.1:61442 → Client 8
+[19:03:59.096] Client 8 → CONNECT    -                      Task=8 Thread=9
+[19:03:59.097] Client 8 → START      CheckConsistency       Task=8 Thread=9
+[19:03:59.105] Client 8 → END        CheckConsistency       Task=8 Thread=9 (0,008 с)
+[19:03:59.106] Client 8 → DISCONNECT -                      Task=- Thread=9

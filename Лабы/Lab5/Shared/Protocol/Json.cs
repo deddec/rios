@@ -4,11 +4,17 @@ namespace FlowerShop.Shared.Protocol;
 
 /// <summary>
 /// Единые настройки сериализации JSON для клиента и сервера.
+/// Имена свойств — camelCase (конвенция JSON), чтобы протокол был единообразен:
+/// имена полей ответа (<c>success</c>, <c>errorCode</c>, <c>message</c>, <c>data</c>)
+/// и запроса (<c>operation</c>, <c>payload</c>) читаются одинаково на клиенте, сервере,
+/// в дымовом драйвере (_smoke) и в тестах. Десериализация дополнительно
+/// регистронезависима (<see cref="PropertyNameCaseInsensitive"/>).
 /// </summary>
 public static class Json
 {
     public static JsonSerializerOptions Options { get; } = new()
     {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         PropertyNameCaseInsensitive = true
     };
 

@@ -5,15 +5,11 @@ using System.Text.Json;
 using FlowerShop.Client;
 using FlowerShop.Shared.Protocol;
 
-// ===== ЛР №3. Клиентская часть =====
-// Продолжение ЛР №2: синхронизация доступа к общему ресурсу (выполняется на сервере —
-// lock или SemaphoreSlim) и синхронизация времени клиента с сервером (часть 2).
-//
-// Запуск с моделированием рассинхронизации часов клиента:
-//   dotnet run --project Client -- --offset=+7    (часы клиента «спешат» на 7 с)
-//   dotnet run --project Client -- --offset=-5    (часы клиента «отстают» на 5 с)
-// Позиционные аргументы: [host] [port].
-// Системное время компьютера НЕ изменяется — смещение моделируется внутри программы.
+// ===== ЛР №5. Клиентская часть =====
+// Продолжение ЛР №1–ЛР №4: предметная область «Заказ и доставка цветов» (вариант 14).
+// Операции ЛР №5: репликация данных (Primary → Replica), обнаружение отказа и Failover,
+// восстановление Primary (Recovery) и синхронизация копий.
+// Пункты меню 18–24; предыдущие лабораторные сохранены (1–17) и продолжают работать.
 
 Console.OutputEncoding = Encoding.UTF8;
 
@@ -51,7 +47,7 @@ var clock = new ClientClock { ClockOffset = clockOffset };
 
 Console.WriteLine("==================================================");
 Console.WriteLine("  Заказ и доставка цветов — КЛИЕНТ (вариант 14)");
-Console.WriteLine("  ЛР №3: синхронизация потоков и времени");
+Console.WriteLine("  ЛР №5: репликация данных и отказоустойчивость");
 Console.WriteLine("==================================================");
 Console.WriteLine($"Сервер: {host}:{port}");
 Console.WriteLine($"Смещение часов клиента (модель): {FormatSigned(clock.ClockOffset)}");
@@ -532,7 +528,6 @@ async Task DoReplicatedUpdateAsync()
     int count = ReadInt("Новое количество: ");
 
     Console.WriteLine("\n[до операции]");
-    await SendRawAsync(RequestBuilder.GetBouquetStatus(bouquetId));
     PrintData(await SendRawAsync(RequestBuilder.GetBouquetStatus(bouquetId)));
 
     await SendAndPrintAsync(RequestBuilder.SetBouquetAvailability(bouquetId, count));
