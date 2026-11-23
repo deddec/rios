@@ -1,0 +1,95 @@
+﻿# ЛР №8 — Контейнеризация распределённого приложения с Docker (вариант 14: «Заказ и доставка цветов»)
+
+Продолжение проекта ЛР №7: сервер с кластером из 5 узлов, выбором лидера, heartbeat, консенсусом и предметной областью «заказ цветов». Новое в ЛР №8 — упаковка приложения в Docker-контейнеры, настройка Docker Network, совместный запуск через Docker Compose, передача конфигурации через переменные окружения, тестирование в контейнерах.
+
+## Структура
+
+| Папка/файл | Содержимое |
+|---|---|
+| `Dockerfile` | Многоэтапная сборка сервера (.NET SDK → ASP.NET Runtime) |
+| `compose.yaml` | Описание сервиса `server`, сеть `flower-shop-net`, том `flower-shop-data`, переменные окружения |
+| `.dockerignore` | Исключения из контекста сборки Docker |
+| `Shared/` | модели, протокол, DTO консенсуса (без изменений по сравнению с ЛР 7) |
+| `Server/Consensus/` | ядро кластера: узлы, выбор лидера, голосование, эксперименты |
+| `Server/Services/` | `FlowerOrderService` — заказы через консенсус |
+| `Server/PubSub/` | постоянное хранилище событий, DLQ, ACK |
+| `Server/Program.cs` | точка входа; поддерживает аргументы командной строки и переменные окружения `FlowerShop__*` |
+| `Server/RequestRouter.cs`, `Server/ConsensusTcpServer.cs` | маршрутизация операций и TCP-сервер |
+| `Client/` | консольный клиент |
+| `Server.Tests/` | unit-тесты xUnit (77 проверок из ЛР 7) |
+| `docs/` | материалы для защиты |
+
+## Переменные окружения (ЛР № 8)
+
+| Переменная | Описание | По умолчанию |
+|---|---|---|
+| `FlowerShop__Port` | TCP-порт сервера | `5000` |
+| `FlowerShop__LogPath` | Путь к файлу журнала консенсуса | `data/consensus.log` |
+| `FlowerShop__DataPath` | Папка постоянного хранилища событий | `data/events` |
+| `FlowerShop__MonitorMs` | Период проверки heartbeat (мс) | `3000` |
+| `FlowerShop__Missed` | Количество пропущенных heartbeat до отказа | `2` |
+
+Аргументы командной строки (`--port`, `--log`, `--data`, `--monitor-ms`, `--missed`, `--experiments`) имеют приоритет над переменными окружения.
+
+## Запуск
+
+### Обычный запуск (без Docker)
+```bash
+dotnet run --project Server                # сервер на порту 5000
+dotnet run --project Client                # клиент (аргументы: host port)
+dotnet run --project Server -- --experiments   # эксперименты 1–5
+dotnet test                                # unit-тесты
+```
+
+### Запуск через Docker (один контейнер)
+```bash
+docker build -t flower-shop-server .
+docker run -p 5000:5000 flower-shop-server
+```
+
+### Запуск через Docker Compose (рекомендуется)
+```bash
+docker compose up --build
+# в другом терминале:
+dotnet run --project Client 127.0.0.1 5000
+docker compose down
+```
+
+## Что проверяется в рамках ЛР №8
+
+1. Сервер собирается в Docker-образ и запускается в контейнере.
+2. Клиент подключается к серверу в контейнере через опубликованный порт.
+3. Конфигурация передаётся через переменные окружения без изменения кода.
+4. При остановке и повторном запуске контейнера взаимодействие восстанавливается.
+5. Данные сохраняются в Docker-томе (`flower-shop-data`).
+6. Unit-тесты проходят после контейнеризации (77 проверок).
+7. Обработка ошибок: недоступность сервера, некорректные запросы, порт занят и т.д.
+
+## Связь с ЛР №7
+
+Все функциональные возможности ЛР №7 сохранены: кластер из 5 узлов, выбор лидера по максимальному ID, heartbeat, обнаружение отказов, повторные выборы, консенсус большинством (N/2+1), создание и изменение статусов заказов, журнал работы, эксперименты с отказами. Контейнеризация не меняет бизнес-логику — она только упаковывает приложение для независимого запуска.
+
+## ЛР №9 — развертывание в Kubernetes
+
+Продолжение ЛР №8. Образ `flower-shop-server:1.0` развертывается в локальном кластере (Docker Desktop или Minikube).
+
+| Файл | Назначение |
+|---|---|
+| `k8s/deployment.yaml` | Deployment сервера (replicas, метки, образ, переменная `APP_MODE` из ConfigMap) |
+| `k8s/part1-deployment.yaml` | Deployment без ConfigMap (для части 1) |
+| `k8s/service.yaml` | Service ClusterIP, порт 5000 |
+| `k8s/configmap.yaml` | ConfigMap `flower-shop-config` (`APP_MODE: kubernetes`) |
+| `k8s/README.md` | Пошаговый runbook: развертывание, масштабирование, удаление Pod, ошибка образа |
+| `docs/Lab9_Report.md` | Отчет ЛР №9: теория, сравнение Docker и Kubernetes, контрольные вопросы, таблицы результатов |
+| `Server/AppConfig.cs` | Чтение параметра `APP_MODE` (по умолчанию `default`) |
+| `Server.Tests/AppConfigTests.cs` | Unit-тесты логики параметра конфигурации |
+
+Быстрый старт:
+
+```bash
+docker build -t flower-shop-server .
+docker tag flower-shop-server flower-shop-server:1.0
+kubectl apply -f k8s/configmap.yaml -f k8s/deployment.yaml -f k8s/service.yaml
+kubectl port-forward service/flower-shop-server 5000:5000
+dotnet run --project Client 127.0.0.1 5000
+```

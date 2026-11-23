@@ -1,0 +1,25 @@
+# ЛР №9, часть 1: Deployment БЕЗ ConfigMap (состояние до части 4).
+# Используйте его в части 1, чтобы проверить развертывание до добавления конфигурации.
+# Затем примените k8s/deployment.yaml (с блоком env) в части 4.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flower-shop-server
+  labels:
+    app: flower-shop-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flower-shop-server
+  template:
+    metadata:
+      labels:
+        app: flower-shop-server
+    spec:
+      containers:
+        - name: server
+          image: flower-shop-server:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000

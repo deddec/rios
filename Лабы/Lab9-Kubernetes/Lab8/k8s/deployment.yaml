@@ -1,0 +1,31 @@
+# ЛР №9, части 1–4: итоговый Deployment сервера FlowerShop.
+# Образ flower-shop-server:1.0 получен из ЛР №8 (docker tag flower-shop-server flower-shop-server:1.0).
+# Применение: kubectl apply -f k8s/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flower-shop-server
+  labels:
+    app: flower-shop-server
+spec:
+  replicas: 1                      # желаемое количество экземпляров (Pod); меняется через kubectl scale
+  selector:
+    matchLabels:
+      app: flower-shop-server      # по этим меткам Deployment управляет своими Pod
+  template:
+    metadata:
+      labels:
+        app: flower-shop-server    # метки, назначаемые создаваемым Pod; селектор Service должен совпадать
+    spec:
+      containers:
+        - name: server
+          image: flower-shop-server:1.0
+          imagePullPolicy: IfNotPresent   # использовать локальный образ, если он уже есть на узле
+          ports:
+            - containerPort: 5000         # документирует порт приложения; сам по себе порт не публикует
+          env:
+            - name: APP_MODE              # переменная, которую читает C#-код (AppConfig.GetAppMode)
+              valueFrom:
+                configMapKeyRef:
+                  name: flower-shop-config  # имя ConfigMap
+                  key: APP_MODE             # ключ в ConfigMap

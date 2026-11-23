@@ -1,11 +1,13 @@
 using System.Text;
 using FlowerShop.Server;
 using FlowerShop.Server.Consensus;
+using FlowerShop.Server.Data;
 using FlowerShop.Server.PubSub;
 using FlowerShop.Server.Services;
 using FlowerShop.Shared.Protocol;
 
-// ЛР №7: сервер кластера из 5 узлов (выбор лидера, heartbeat, голосование, консенсус).
+// ЛР №7/№8: сервер кластера из 5 узлов (выбор лидера, heartbeat, голосование, консенсус)
+// с постоянным хранением заказов в MSSQL (ЛР № 8).
 // Параметры: --port N | --log путь | --data папка | --monitor-ms N | --missed N | --experiments
 
 Console.OutputEncoding = Encoding.UTF8;
@@ -44,12 +46,41 @@ int missed = int.TryParse(Arg(args, "--missed"), out int k)
     ? Math.Max(1, k)
     : (int.TryParse(Environment.GetEnvironmentVariable("FlowerShop__Missed"), out int ek) ? Math.Max(1, ek) : 2);
 
+// ---- инициализация MSSQL (ЛР № 8) ------------------------------------------
+var db = new Database();
+string? dbError;
+
+// Проверка доступности сервера БД.
+if (!db.TryPing(out dbError))
+{
+    Console.WriteLine($"[Сервер] MSSQL недоступен: {dbError}");
+    Console.WriteLine("[Сервер] Продолжаем работу без базы данных (заказы только в памяти).");
+    db = null!;
+}
+else
+{
+    Console.WriteLine("[Сервер] MSSQL доступен ✓");
+
+    // Создать базу, если не существует.
+    if (!db.EnsureDatabaseExists(out dbError))
+        Console.WriteLine($"[Сервер] Не удалось создать базу: {dbError}");
+    else
+        Console.WriteLine($"[Сервер] База '{db.DatabaseName}' готова ✓");
+
+    // Применить схему.
+    if (!db.EnsureSchema(out dbError))
+        Console.WriteLine($"[Сервер] Не удалось применить схему: {dbError}");
+    else
+        Console.WriteLine("[Сервер] Схема применена ✓");
+}
+
 var log = new ConsensusLog(logPath);
 log.LineWritten += Console.WriteLine;
 
 var cluster = new ConsensusCluster(log, new ClusterOptions { NodeCount = 5, MissedHeartbeatsToFail = missed });
 using var eventStore = new PersistentEventStore(dataPath);
-var orders = new FlowerOrderService(cluster, eventStore);
+var orderRepository = db is not null ? new OrderRepository(db) : null!;
+var orders = new FlowerOrderService(cluster, eventStore, orderRepository);
 var router = new RequestRouter(cluster, orders);
 var server = new ConsensusTcpServer(router, log);
 

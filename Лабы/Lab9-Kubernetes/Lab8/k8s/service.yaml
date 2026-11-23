@@ -1,0 +1,15 @@
+# ЛР №9, часть 2: стабильная точка доступа к Pod сервера.
+# Порт 5000 — порт, на котором слушает сервер FlowerShop (см. Dockerfile, FlowerShop__Port=5000).
+# Применение: kubectl apply -f k8s/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: flower-shop-server
+spec:
+  type: ClusterIP
+  selector:
+    app: flower-shop-server        # должен совпадать с template.metadata.labels в deployment.yaml
+  ports:
+    - port: 5000                   # порт Service
+      targetPort: 5000             # порт контейнера
+      protocol: TCP

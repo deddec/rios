@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using FlowerShop.Server.Consensus;
+using FlowerShop.Server.Data;
 using FlowerShop.Server.PubSub;
 using FlowerShop.Shared.Models;
 using FlowerShop.Shared.Protocol;
@@ -21,21 +22,24 @@ public sealed record OrderOperationResult(
 /// только после того, как большинство узлов проголосовало YES. Принятое решение публикуется
 /// как событие <see cref="ShopEvent"/> в постоянное хранилище (если оно задано), т.е. продолжает
 /// линию Pub/Sub из предыдущих лабораторных.
+/// Заказы также дублируются в MSSQL через <see cref="OrderRepository"/> (ЛР № 8).
 /// </summary>
 public sealed class FlowerOrderService
 {
     private readonly ConsensusCluster _cluster;
     private readonly PersistentEventStore? _eventStore;
+    private readonly OrderRepository? _orderRepository;
     private readonly ConcurrentDictionary<int, Order> _orders = new();
     private readonly ConcurrentDictionary<int, Order> _stagedOrders = new();
     private readonly ConcurrentDictionary<int, int> _stagedFlorists = new();
     private readonly object _createGate = new();
     private int _nextOrderId = 1;
 
-    public FlowerOrderService(ConsensusCluster cluster, PersistentEventStore? eventStore = null)
+    public FlowerOrderService(ConsensusCluster cluster, PersistentEventStore? eventStore = null, OrderRepository? orderRepository = null)
     {
         _cluster = cluster ?? throw new ArgumentNullException(nameof(cluster));
         _eventStore = eventStore;
+        _orderRepository = orderRepository;
         _cluster.Committed += OnCommitted;
     }
 
@@ -68,6 +72,22 @@ public sealed class FlowerOrderService
             }
 
             _nextOrderId++;
+            // Дублируем заказ в MSSQL (ЛР № 8).
+            if (_orderRepository is not null)
+            {
+                try { _orderRepository.Create(new Order
+                {
+                    Id = orderId,
+                    CustomerId = customerId,
+                    BouquetId = bouquetId,
+                    DeliveryDate = deliveryDate,
+                    Status = OrderStatus.Created,
+                    FloristId = null,
+                    DeliveryAddress = deliveryAddress.Trim()
+                }); }
+                catch (Exception ex) { _cluster.Log.Write($"OrderRepository Create error: {ex.Message}"); }
+            }
+
             return new OrderOperationResult(true, null, $"Заказ #{orderId} создан (консенсус достигнут)",
                 _orders[orderId], consensus);
         }
@@ -92,13 +112,42 @@ public sealed class FlowerOrderService
         if (!consensus.ConsensusAchieved)
             return Failed(consensus, order);
 
+        // Дублируем изменение в MSSQL (ЛР № 8).
+        if (_orderRepository is not null)
+        {
+            try { _orderRepository.UpdateStatus(orderId, status); }
+            catch (Exception ex) { _cluster.Log.Write($"OrderRepository UpdateStatus error: {ex.Message}"); }
+        }
+
         return new OrderOperationResult(true, null,
             $"Статус заказа #{orderId} изменён на {status} (консенсус достигнут)", order, consensus);
     }
 
-    public Order? GetOrder(int orderId) => _orders.TryGetValue(orderId, out var o) ? o : null;
+    public Order? GetOrder(int orderId)
+    {
+        if (_orders.TryGetValue(orderId, out var o)) return o;
+        if (_orderRepository is not null)
+        {
+            try
+            {
+                var dbOrder = _orderRepository.GetById(orderId);
+                if (dbOrder is not null) _orders[orderId] = dbOrder;
+                return dbOrder;
+            }
+            catch (Exception ex) { _cluster.Log.Write($"OrderRepository GetById error: {ex.Message}"); }
+        }
+        return null;
+    }
 
-    public IReadOnlyList<Order> ListOrders() => _orders.Values.OrderBy(o => o.Id).ToList();
+    public IReadOnlyList<Order> ListOrders()
+    {
+        if (_orderRepository is not null)
+        {
+            try { return _orderRepository.GetAll(); }
+            catch (Exception ex) { _cluster.Log.Write($"OrderRepository GetAll error: {ex.Message}"); }
+        }
+        return _orders.Values.OrderBy(o => o.Id).ToList();
+    }
 
     // ---- применение принятого решения (вызывается кластером под его блокировкой) -----------
 
@@ -116,6 +165,13 @@ public sealed class FlowerOrderService
         order.Status = p.Value;
         order.Events.Add(p.Value);
         if (_stagedFlorists.TryRemove(orderId, out int floristId)) order.FloristId = floristId;
+
+        // Дублируем применённое решение в MSSQL (ЛР № 8).
+        if (_orderRepository is not null)
+        {
+            try { _orderRepository.UpdateStatus(orderId, p.Value); }
+            catch (Exception ex) { _cluster.Log.Write($"OrderRepository OnCommitted error: {ex.Message}"); }
+        }
 
         PublishEvent(order, p, decision);
     }
@@ -147,6 +203,17 @@ public sealed class FlowerOrderService
             }
         };
         _eventStore.Save(shopEvent);
+
+        // Дублируем событие в MSSQL (ЛР № 8).
+        if (_orderRepository is not null)
+        {
+            try
+            {
+                _orderRepository.SaveEvent(order.Id, eventType, shopEvent.EventId, shopEvent.SequenceNumber,
+                    order.CustomerId, shopEvent.Data);
+            }
+            catch (Exception ex) { _cluster.Log.Write($"OrderRepository SaveEvent error: {ex.Message}"); }
+        }
     }
 
     private static OrderOperationResult Invalid(string message) =>
