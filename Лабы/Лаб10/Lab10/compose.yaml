@@ -1,0 +1,53 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: flower-shop-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    networks:
+      - flower-shop-net
+    volumes:
+      - flower-shop-db-data:/var/opt/mssql
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "/opt/mssql-tools18/bin/sqlcmd", "-C", "-S", "localhost", "-U", "sa", "-P", "YourStrong!Passw0rd", "-Q", "SELECT 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flower-shop-server
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - FlowerShop__Port=5000
+      - FlowerShop__DbConnectionString=Server=db,1433;Database=FlowerShop;User=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;
+      - FlowerShop__LogPath=/app/data/consensus.log
+      - FlowerShop__DataPath=/app/data/events
+      - FlowerShop__MonitorMs=3000
+      - FlowerShop__Missed=2
+    networks:
+      - flower-shop-net
+    volumes:
+      - flower-shop-data:/app/data
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+
+networks:
+  flower-shop-net:
+    driver: bridge
+
+volumes:
+  flower-shop-data:
+  flower-shop-db-data:

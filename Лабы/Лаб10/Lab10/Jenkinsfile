@@ -1,0 +1,101 @@
+// Jenkinsfile — CI/CD-конвейер серверного приложения FlowerShop (ЛР №10)
+// Этапы: Checkout → Restore → Build → Test → Package → Deploy.
+// Декларативный pipeline останавливает выполнение при ошибке любого этапа,
+// поэтому при провале Test этапы Package и Deploy не выполняются.
+
+// Вызов команды оболочки: sh — на Linux/WSL, bat — на Windows.
+def runCmd(String cmd) {
+    if (isUnix()) {
+        sh cmd
+    } else {
+        bat cmd
+    }
+}
+
+pipeline {
+    agent any
+
+    options {
+        disableConcurrentBuilds()
+    }
+
+    // Poll SCM: проверка репозитория примерно раз в две минуты (планировщик Jenkins может сдвигать время)
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+
+    environment {
+        IMAGE_NAME     = 'flower-shop-server'
+        IMAGE_TAG      = "${env.BUILD_NUMBER}"        // уникальный тег = номер сборки Jenkins
+        K8S_DEPLOYMENT = 'flower-shop-server'         // имя Deployment из k8s/deployment.yaml
+        K8S_CONTAINER  = 'server'                     // имя контейнера внутри Deployment
+        SERVER_PROJECT = 'Server/FlowerShop.Server.csproj'
+        TESTS_PROJECT  = 'Server.Tests/FlowerShop.Server.Tests.csproj'
+        // 'true' — загрузить образ в Minikube (minikube image load) перед обновлением Deployment.
+        // Для Docker Desktop оставить 'false': Kubernetes видит образы того же Docker Engine.
+        LOAD_IMAGE_TO_MINIKUBE = 'false'
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+                runCmd('git log -1 --oneline')
+            }
+        }
+
+        stage('Restore') {
+            steps {
+                runCmd("dotnet restore ${SERVER_PROJECT}")
+                runCmd("dotnet restore ${TESTS_PROJECT}")
+            }
+        }
+
+        stage('Build') {
+            steps {
+                runCmd("dotnet build ${SERVER_PROJECT} --configuration Release --no-restore")
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Unit- и интеграционные тесты; результаты сохраняются в TRX-файл
+                runCmd("dotnet test ${TESTS_PROJECT} --configuration Release --no-restore --logger \"trx;LogFileName=test-results.trx\"")
+            }
+        }
+
+        stage('Package') {
+            steps {
+                runCmd("docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .")
+                runCmd("docker image inspect ${IMAGE_NAME}:${IMAGE_TAG}")
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    if (env.LOAD_IMAGE_TO_MINIKUBE == 'true') {
+                        runCmd("minikube image load ${IMAGE_NAME}:${IMAGE_TAG}")
+                    }
+                }
+                runCmd("kubectl set image deployment/${K8S_DEPLOYMENT} ${K8S_CONTAINER}=${IMAGE_NAME}:${IMAGE_TAG}")
+                runCmd("kubectl rollout status deployment/${K8S_DEPLOYMENT} --timeout=180s")
+                runCmd("kubectl get deployments")
+                runCmd("kubectl get pods -l app=${K8S_DEPLOYMENT}")
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/TestResults/*.trx', allowEmptyArchive: true
+        }
+        success {
+            echo "Pipeline SUCCESS: образ ${IMAGE_NAME}:${IMAGE_TAG} развернут в Kubernetes"
+        }
+        failure {
+            echo 'Pipeline FAILED: откройте Console Output и найдите этап, на котором возникла ошибка'
+        }
+    }
+}

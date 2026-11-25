@@ -1,0 +1,8 @@
+# ЛР №9, часть 4: ConfigMap с неконфиденциальным параметром.
+# Применение: kubectl apply -f k8s/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flower-shop-config
+data:
+  APP_MODE: "kubernetes"
